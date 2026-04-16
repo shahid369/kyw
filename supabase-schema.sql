@@ -13,6 +13,7 @@ create table if not exists profiles (
   id uuid primary key references auth.users(id) on delete cascade,
   name text,
   partner_name text,
+  default_cycle_length integer default 28,
   avatar_url text,
   created_at timestamptz default now(),
   updated_at timestamptz default now()
@@ -36,6 +37,44 @@ create policy "Users can update own profile"
 create policy "Users can delete own profile"
   on profiles for delete
   using (auth.uid() = id);
+
+-- ============================================================
+-- PARTNER PROFILES TABLE
+-- Stores her personality details for guide personalisation
+-- ============================================================
+create table if not exists partner_profiles (
+  user_id           uuid primary key references auth.users(id) on delete cascade,
+  love_language     text,           -- words | acts | quality_time | touch | gifts
+  personality       text[],         -- e.g. ['introvert', 'sensitive', 'playful']
+  comfort_style     text,           -- physical | alone_time | distraction
+  communication_style text,         -- direct | indirect | needs_space_first
+  likes             text[],         -- ['chai', 'true crime podcasts', 'cozy blankets']
+  dislikes          text[],         -- ['loud environments', 'unsolicited advice']
+  comfort_foods     text[],         -- ['maggi', 'dark chocolate', 'biryani']
+  fav_shows         text[],         -- ['The Office', 'Friends']
+  fav_activities    text[],         -- ['walks', 'painting', 'baking']
+  onboarding_step   integer default 0, -- 0=not started, 5=complete
+  updated_at        timestamptz default now()
+);
+
+-- RLS
+alter table partner_profiles enable row level security;
+
+create policy "Users can view own partner profile"
+  on partner_profiles for select
+  using (auth.uid() = user_id);
+
+create policy "Users can insert own partner profile"
+  on partner_profiles for insert
+  with check (auth.uid() = user_id);
+
+create policy "Users can update own partner profile"
+  on partner_profiles for update
+  using (auth.uid() = user_id);
+
+create policy "Users can delete own partner profile"
+  on partner_profiles for delete
+  using (auth.uid() = user_id);
 
 -- ============================================================
 -- CYCLES TABLE
@@ -139,3 +178,15 @@ drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute procedure public.handle_new_user();
+
+-- ============================================================
+-- DELETE ACCOUNT RPC
+-- Allows authenticated users to delete their own account completely
+-- from auth.users (cascading down to profiles, cycles)
+-- ============================================================
+create or replace function public.delete_user()
+returns void as $$
+begin
+  delete from auth.users where id = auth.uid();
+end;
+$$ language plpgsql security definer;

@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { Plus, Trash2, Save } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import { format } from 'date-fns'
+import { CalendarPicker } from '@/components/CalendarPicker'
 
 const SYMPTOMS = [
   { id: 'cramps', label: 'Cramps', emoji: '😣' },
@@ -25,8 +26,10 @@ export default function LogPage() {
   const [activeTab, setActiveTab] = useState<'cycle' | 'symptoms'>('cycle')
 
   // Cycle form
-  const [startDate, setStartDate] = useState(format(new Date(), 'yyyy-MM-dd'))
-  const [endDate, setEndDate] = useState('')
+  const [startDate, setStartDate] = useState<string | null>(null)
+  const [endDate, setEndDate] = useState<string | null>(null)
+  const [periodLength, setPeriodLength] = useState('5')
+  const [cycleLength, setCycleLength] = useState('28')
   const [notes, setNotes] = useState('')
   const [cycleLoading, setCycleLoading] = useState(false)
   const [cycleSuccess, setCycleSuccess] = useState(false)
@@ -54,9 +57,10 @@ export default function LogPage() {
 
   const handleLogCycle = async (e: FormEvent) => {
     e.preventDefault()
-    if (!userId) return
+    if (!userId || !startDate) return
     setCycleLoading(true); setCycleError(''); setCycleSuccess(false)
 
+    // finalEndDate is now natively managed by the calendar! Let's just use endDate.
     const { error } = await supabase.from('cycles').insert({
       user_id: userId,
       start_date: startDate,
@@ -64,9 +68,14 @@ export default function LogPage() {
       notes: notes || null,
     })
 
+    if (!error && cycles.length === 0) {
+      await supabase.from('profiles').update({ default_cycle_length: Number(cycleLength) || 28 }).eq('id', userId)
+    }
+
     if (error) { setCycleError(error.message); setCycleLoading(false); return }
     setCycleSuccess(true); setCycleLoading(false); setNotes('')
-    setEndDate('')
+    setStartDate(null)
+    setEndDate(null)
     // Refresh cycles
     const { data } = await supabase.from('cycles').select('id, start_date').eq('user_id', userId).order('start_date', { ascending: false })
     if (data) { setCycles(data); if (data[0]) setSelectedCycleId(data[0].id) }
@@ -133,26 +142,39 @@ export default function LogPage() {
           {cycleError && <div className="alert alert-error" style={{ marginBottom: 'var(--space-md)' }}>{cycleError}</div>}
           {cycleSuccess && <div className="alert alert-success" style={{ marginBottom: 'var(--space-md)' }}>✓ Cycle logged successfully!</div>}
           <form onSubmit={handleLogCycle} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
-            <div className="input-group">
-              <label className="input-label" htmlFor="start">Period Start Date *</label>
-              <input id="start" type="date" className="input-field" value={startDate}
-                onChange={(e) => setStartDate(e.target.value)} required max={format(new Date(), 'yyyy-MM-dd')} />
-            </div>
-            <div className="input-group">
-              <label className="input-label" htmlFor="end">
-                Period End Date {cycles.length === 0 ? '*' : '(optional)'}
-              </label>
-              <input id="end" type="date" className="input-field" value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}
-                min={startDate} max={format(new Date(), 'yyyy-MM-dd')}
-                required={cycles.length === 0} />
-              {cycles.length === 0 ? (
-                <span style={{ fontSize: '0.8rem', color: 'var(--color-primary)', fontWeight: 500 }}>
-                  📅 Enter when the last period ended to set up cycle tracking
-                </span>
-              ) : (
-                <span style={{ fontSize: '0.8rem', color: 'var(--color-muted)' }}>Leave blank if the period is still ongoing</span>
+            <div className="grid-2" style={{ gap: '12px' }}>
+              <div className="input-group">
+                <label className="input-label" htmlFor="periodLength">
+                  Typical Period Length (days) *
+                </label>
+                <input id="periodLength" type="number" min="1" max="15" className="input-field" value={periodLength}
+                  onChange={(e) => setPeriodLength(e.target.value)}
+                  required />
+              </div>
+              {cycles.length === 0 && (
+                <div className="input-group">
+                  <label className="input-label" htmlFor="cycleLength">
+                    Average Cycle Length (days) *
+                  </label>
+                  <input id="cycleLength" type="number" min="15" max="60" className="input-field" value={cycleLength}
+                    onChange={(e) => setCycleLength(e.target.value)}
+                    required />
+                </div>
               )}
+            </div>
+            
+            <div className="input-group">
+              <label className="input-label">Select Cycle Dates *</label>
+              <CalendarPicker 
+                startDate={startDate} 
+                endDate={endDate} 
+                periodLength={Number(periodLength) || 5}
+                onChange={(s, e) => {
+                  setStartDate(s)
+                  setEndDate(e)
+                }} 
+              />
+              {!startDate && <p style={{color: 'var(--color-muted)', fontSize: '0.8rem'}}>Click a start date to begin tracking.</p>}
             </div>
             <div className="input-group">
               <label className="input-label" htmlFor="notes">Notes (optional)</label>
@@ -160,7 +182,7 @@ export default function LogPage() {
                 value={notes} onChange={(e) => setNotes(e.target.value)}
                 style={{ minHeight: '80px', resize: 'vertical' }} />
             </div>
-            <button type="submit" className="btn btn-primary" disabled={cycleLoading} style={{ width: 'fit-content' }}>
+            <button type="submit" className="btn btn-primary" disabled={cycleLoading || !startDate} style={{ width: 'fit-content' }}>
               {cycleLoading ? <span className="spinner" /> : <><Save size={15} /> Save Cycle</>}
             </button>
           </form>

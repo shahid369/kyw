@@ -12,6 +12,7 @@ export default function HistoryPage() {
   const router = useRouter()
   const supabase = createClient()
   const [cycles, setCycles] = useState<Cycle[]>([])
+  const [profile, setProfile] = useState<{ default_cycle_length: number } | null>(null)
   const [loading, setLoading] = useState(true)
   const [deleting, setDeleting] = useState<string | null>(null)
 
@@ -19,8 +20,12 @@ export default function HistoryPage() {
     const load = async () => {
       const { data: { user } } = await supabase.auth.getUser()
       if (!user) { router.push('/login'); return }
-      const { data } = await supabase.from('cycles').select('*').eq('user_id', user.id).order('start_date', { ascending: false })
-      if (data) setCycles(data)
+      const [profileRes, cyclesRes] = await Promise.all([
+        supabase.from('profiles').select('default_cycle_length').eq('id', user.id).single(),
+        supabase.from('cycles').select('*').eq('user_id', user.id).order('start_date', { ascending: false })
+      ])
+      if (profileRes.data) setProfile(profileRes.data)
+      if (cyclesRes.data) setCycles(cyclesRes.data)
       setLoading(false)
     }
     load()
@@ -35,7 +40,7 @@ export default function HistoryPage() {
     setDeleting(null)
   }
 
-  const avgCycle = getAverageCycleLength(cycles)
+  const avgCycle = getAverageCycleLength(cycles, profile?.default_cycle_length || 28)
   const avgPeriod = getAveragePeriodLength(cycles)
 
   if (loading) return (

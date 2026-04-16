@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
-import { Navbar } from '@/components/Navbar'
+import { Navbar, MobileNav } from '@/components/Navbar'
 import { QueryProvider } from '@/components/QueryProvider'
 
 export const metadata: Metadata = {
@@ -27,6 +27,7 @@ export default function RootLayout({
         <ThemeProvider>
           <QueryProvider>
             <Navbar />
+            <MobileNav />
             <main className="page-wrapper">
               {children}
             </main>

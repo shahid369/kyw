@@ -3,6 +3,8 @@
 // Calculates menstrual cycle phases based on cycle history
 // ============================================================
 
+import { differenceInDays } from 'date-fns'
+
 export type CyclePhase =
   | 'menstrual'
   | 'follicular'
@@ -30,19 +32,17 @@ export interface PhaseInfo {
   cycleProgress: number // 0-100 percentage
 }
 
-export function getAverageCycleLength(cycles: Cycle[]): number {
+export function getAverageCycleLength(cycles: Cycle[], defaultCycleLength: number = 28): number {
   const lengths: number[] = []
 
   for (let i = 1; i < cycles.length; i++) {
-    const prev = new Date(cycles[i - 1].start_date)
-    const curr = new Date(cycles[i].start_date)
-    const diff = Math.round(
-      (curr.getTime() - prev.getTime()) / (1000 * 60 * 60 * 24)
-    )
+    const newer = new Date(cycles[i - 1].start_date)
+    const older = new Date(cycles[i].start_date)
+    const diff = Math.abs(differenceInDays(newer, older))
     if (diff > 15 && diff < 60) lengths.push(diff) // sanity filter
   }
 
-  if (lengths.length === 0) return 28
+  if (lengths.length === 0) return defaultCycleLength
   return Math.round(lengths.reduce((a, b) => a + b, 0) / lengths.length)
 }
 
@@ -52,9 +52,8 @@ export function getAveragePeriodLength(cycles: Cycle[]): number {
     .map((c) => {
       const start = new Date(c.start_date)
       const end = new Date(c.end_date!)
-      return Math.round(
-        (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)
-      )
+      // Add 1 to make the period duration inclusive of start and end days
+      return Math.abs(differenceInDays(end, start)) + 1
     })
     .filter((l) => l > 1 && l < 15)
 
@@ -62,7 +61,7 @@ export function getAveragePeriodLength(cycles: Cycle[]): number {
   return Math.round(lengths.reduce((a, b) => a + b, 0) / lengths.length)
 }
 
-export function getCurrentPhaseInfo(cycles: Cycle[]): PhaseInfo | null {
+export function getCurrentPhaseInfo(cycles: Cycle[], defaultCycleLength: number = 28): PhaseInfo | null {
   if (!cycles || cycles.length === 0) return null
 
   // Sort by start_date descending (newest first)
@@ -72,7 +71,7 @@ export function getCurrentPhaseInfo(cycles: Cycle[]): PhaseInfo | null {
   )
 
   const lastCycle = sorted[0]
-  const avgCycleLength = getAverageCycleLength(sorted)
+  const avgCycleLength = getAverageCycleLength(sorted, defaultCycleLength)
   const avgPeriodLength = getAveragePeriodLength(sorted)
 
   const lastStart = new Date(lastCycle.start_date)

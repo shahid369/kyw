@@ -1,0 +1,46 @@
+name: kyw_mobile
+description: "KYW — Know Your Women. Period tracking for partners."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  supabase_flutter: ^2.12.2
+  flutter_riverpod: ^3.3.1
+  go_router: ^17.2.0
+  flutter_animate: ^4.5.2
+  lucide_icons: ^0.257.0
+  intl: ^0.20.2
+  google_fonts: ^8.0.2
+  shared_preferences: ^2.3.5
+  flutter_local_notifications: ^20.1.0
+  timezone: ^0.10.1
+  permission_handler: ^12.0.1
+  flutter_timezone: ^5.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/kyw_icon.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#0D0E14"
+  adaptive_icon_foreground: "assets/icons/kyw_icon.png"
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/

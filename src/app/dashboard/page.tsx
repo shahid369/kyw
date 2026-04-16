@@ -15,7 +15,7 @@ export default function DashboardPage() {
   const router = useRouter()
   const supabase = createClient()
   const [user, setUser] = useState<User | null>(null)
-  const [profile, setProfile] = useState<{ name: string; partner_name: string } | null>(null)
+  const [profile, setProfile] = useState<{ name: string; partner_name: string; default_cycle_length: number } | null>(null)
   const [cycles, setCycles] = useState<Cycle[]>([])
   const [loading, setLoading] = useState(true)
   const [periodActionLoading, setPeriodActionLoading] = useState(false)
@@ -23,7 +23,7 @@ export default function DashboardPage() {
 
   const loadData = async (uid: string) => {
     const [profileRes, cyclesRes] = await Promise.all([
-      supabase.from('profiles').select('name, partner_name').eq('id', uid).single(),
+      supabase.from('profiles').select('name, partner_name, default_cycle_length').eq('id', uid).single(),
       supabase.from('cycles').select('*').eq('user_id', uid).order('start_date', { ascending: false }),
     ])
     if (profileRes.data) setProfile(profileRes.data)
@@ -69,7 +69,7 @@ export default function DashboardPage() {
     setPeriodActionLoading(false)
   }
 
-  const phaseInfo = getCurrentPhaseInfo(cycles)
+  const phaseInfo = getCurrentPhaseInfo(cycles, profile?.default_cycle_length || 28)
   const phaseConfig = phaseInfo ? PHASE_CONFIG[phaseInfo.phase] : null
 
   if (loading) return (

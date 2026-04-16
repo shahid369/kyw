@@ -101,7 +101,7 @@ export function MobileNav() {
       position: 'fixed', bottom: 0, left: 0, right: 0,
       background: 'var(--nav-bg)', backdropFilter: 'blur(20px)',
       borderTop: '1px solid var(--color-border)',
-      display: 'none', zIndex: 100,
+      zIndex: 100,
       padding: '8px 0 max(8px, env(safe-area-inset-bottom))',
     }}
       className="mobile-nav"

@@ -1,0 +1,78 @@
+name: Build Flutter Apps
+
+on:
+  workflow_dispatch: # Allows you to manually trigger the workflow from the Actions tab
+
+jobs:
+  build-android:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: kyw_mobile
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Get Dependencies
+        run: flutter pub get
+
+      - name: Build APK (Release)
+        # We are building an unsigned/debug-keystore APK as requested.
+        run: flutter build apk --release
+
+      - name: Upload Android Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kyw-app-android-apk
+          path: kyw_mobile/build/app/outputs/flutter-apk/app-release.apk
+
+  build-ios:
+    name: Build iOS IPA (Unsigned)
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: kyw_mobile
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Get Dependencies
+        run: flutter pub get
+
+      - name: Build iOS (No Codesign)
+        # Because we don't have Apple Certificates, we compile with --no-codesign
+        run: flutter build ios --release --no-codesign
+
+      - name: Package Payload to IPA
+        # The IPA format is essentially a zip file containing a 'Payload' folder
+        run: |
+          mkdir -p Payload
+          mv build/ios/iphoneos/Runner.app Payload/
+          zip -qr app-unsigned.ipa Payload
+          
+      - name: Upload iOS Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kyw-app-ios-ipa-unsigned
+          path: kyw_mobile/app-unsigned.ipa
