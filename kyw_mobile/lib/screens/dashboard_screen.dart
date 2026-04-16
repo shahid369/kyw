@@ -118,7 +118,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Icon(
-                      isEnding ? LucideIcons.checkCircle2 : LucideIcons.plus, 
+                      isEnding ? LucideIcons.calendarCheck : LucideIcons.droplets, 
                       color: isEnding ? AppColors.phaseMenstrual : AppColors.primary, 
                       size: 24
                     ),
