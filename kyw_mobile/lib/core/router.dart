@@ -10,6 +10,7 @@ import '../screens/log_screen.dart';
 import '../screens/guide_screen.dart';
 import '../screens/settings_screen.dart';
 import '../screens/main_shell.dart';
+import '../screens/onboarding_screen.dart';
 
 /// Notifies GoRouter to re-evaluate redirects whenever auth state changes.
 class _AuthNotifier extends ChangeNotifier {
@@ -48,6 +49,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       // ── Auth routes (outside shell — no bottom nav) ─────────────
       GoRoute(path: '/login',  builder: (_, __) => const LoginScreen()),
       GoRoute(path: '/signup', builder: (_, __) => const SignupScreen()),
+      GoRoute(path: '/onboarding', builder: (_, __) => const OnboardingScreen()),
 
       // ── Main shell (5 tabs) ─────────────────────────────────────
       StatefulShellRoute.indexedStack(

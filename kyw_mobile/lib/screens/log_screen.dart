@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -201,12 +202,17 @@ class _LogScreenState extends ConsumerState<LogScreen> {
                     style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14, color: isDark ? DarkColors.text : AppColors.text),
                   ),
                   const SizedBox(height: 10),
-                  TextField(
+                  TextFormField(
                     controller: _periodLengthController,
                     keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(2),
+                    ],
                     decoration: InputDecoration(
                       hintText: 'e.g. 5',
                       prefixIcon: Icon(LucideIcons.calendarClock, size: 18, color: textSecondary),
+                      counterText: '',
                     ),
                     onChanged: (val) {
                       setState(() {

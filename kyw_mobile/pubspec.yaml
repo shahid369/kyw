@@ -2,7 +2,7 @@ name: kyw_mobile
 description: "KYW — Know Your Women. Period tracking for partners."
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 1.0.2+1
 
 environment:
   sdk: ^3.9.2
@@ -24,6 +24,7 @@ dependencies:
   timezone: ^0.10.1
   permission_handler: ^12.0.1
   flutter_timezone: ^5.0.2
+  tutorial_coach_mark: ^1.3.3
 
 dev_dependencies:
   flutter_test:

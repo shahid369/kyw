@@ -5,6 +5,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:go_router/go_router.dart';
 import '../core/providers.dart';
 import '../theme/app_theme.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignupScreen extends ConsumerStatefulWidget {
   const SignupScreen({super.key});
@@ -28,6 +29,10 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
 
     try {
       final client = ref.read(supabaseClientProvider);
+
+      // Reset the onboarding flag so the new account sees the setup screen
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('kyw_has_seen_onboarding', false);
 
       // 1. Create auth user
       final response = await client.auth.signUp(
@@ -124,7 +129,12 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                   label: 'Your Name',
                   hint: 'e.g. James',
                   icon: Icons.person_outline_rounded,
-                  validator: (v) => (v == null || v.trim().isEmpty) ? 'Enter your name' : null,
+                  maxLength: 50,
+                  validator: (v) {
+                    if (v == null || v.trim().isEmpty) return 'Enter your name';
+                    if (v.length > 50) return 'Name too long';
+                    return null;
+                  },
                   action: TextInputAction.next,
                 ).animate().fadeIn(delay: 220.ms).slideY(begin: 0.1),
 
@@ -135,7 +145,12 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                   label: "Partner's Name",
                   hint: "e.g. Sarah",
                   icon: Icons.favorite_border_rounded,
-                  validator: (v) => (v == null || v.trim().isEmpty) ? "Enter your partner's name" : null,
+                  maxLength: 50,
+                  validator: (v) {
+                    if (v == null || v.trim().isEmpty) return "Enter your partner's name";
+                    if (v.length > 50) return 'Name too long';
+                    return null;
+                  },
                   action: TextInputAction.next,
                 ).animate().fadeIn(delay: 240.ms).slideY(begin: 0.1),
 
@@ -153,7 +168,9 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                   keyboardType: TextInputType.emailAddress,
                   validator: (v) {
                     if (v == null || v.trim().isEmpty) return 'Enter your email';
-                    if (!v.contains('@')) return 'Enter a valid email';
+                    if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(v)) {
+                      return 'Enter a valid email';
+                    }
                     return null;
                   },
                   action: TextInputAction.next,
@@ -168,12 +185,12 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                   onFieldSubmitted: (_) => _signUp(),
                   validator: (v) {
                     if (v == null || v.isEmpty) return 'Enter a password';
-                    if (v.length < 6) return 'Password must be at least 6 characters';
+                    if (v.length < 8) return 'Password must be at least 8 characters';
                     return null;
                   },
                   decoration: InputDecoration(
                     labelText: 'Password',
-                    hintText: 'At least 6 characters',
+                    hintText: 'At least 8 characters',
                     prefixIcon: const Icon(Icons.lock_outline_rounded, size: 20, color: AppColors.muted),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -245,16 +262,19 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
     TextInputType? keyboardType,
     String? Function(String?)? validator,
     TextInputAction? action,
+    int? maxLength,
   }) {
     return TextFormField(
       controller: controller,
       keyboardType: keyboardType,
       textInputAction: action,
       validator: validator,
+      maxLength: maxLength,
       decoration: InputDecoration(
         labelText: label,
         hintText: hint,
         prefixIcon: Icon(icon, size: 20, color: AppColors.muted),
+        counterText: '',
       ),
     );
   }

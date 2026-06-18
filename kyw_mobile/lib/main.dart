@@ -9,9 +9,18 @@ import 'services/notification_service.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  const supabaseUrl = String.fromEnvironment(
+    'SUPABASE_URL',
+    defaultValue: 'https://wnisxixzztvomixnpkls.supabase.co', // TODO: Remove default in production and use --dart-define
+  );
+  const supabaseAnonKey = String.fromEnvironment(
+    'SUPABASE_ANON_KEY',
+    defaultValue: 'sb_publishable_MQvk-2GXP7Jyw9Yg0pxJeg_D2PbFpbR', // TODO: Remove default in production and use --dart-define
+  );
+
   await Supabase.initialize(
-    url: 'https://wnisxixzztvomixnpkls.supabase.co',
-    anonKey: 'sb_publishable_MQvk-2GXP7Jyw9Yg0pxJeg_D2PbFpbR',
+    url: supabaseUrl,
+    anonKey: supabaseAnonKey,
   );
 
   await NotificationService().init();

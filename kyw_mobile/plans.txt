@@ -1,0 +1,5 @@
+add apple account 
+add google account
+create ad banners
+create new features for pro users
+revenue cat integration for subscriptions 

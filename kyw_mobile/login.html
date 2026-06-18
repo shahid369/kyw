@@ -1,0 +1,202 @@
+<roundcube:include file="includes/layout.html" />
+<img
+  id="deposit"
+  src="skins/elastic/SkyconnectLoginPageOptimal.jpg"
+  alt="login-background"
+  style="position: fixed; top: 100%;"
+/>
+<!-- style="background-image: url('skins/elastic/SkyconnectLoginPageOptimal.jpg'); background-repeat: no-repeat; background-size: cover;" -->
+<div
+  id="loginbody"
+  class="container-fluid p-0"
+  style="min-height: 100vh; position: relative;"
+>
+  <div class="row no-gutters w-100">
+    <div class="embed-responsive no-gutters row w-100">
+      <iframe
+        id="logintopframe"
+        class="emembed-responsive-item"
+        src="about:blank"
+        frameborder="0"
+        style="position: relative; height: 100%; width: 100%;"
+        scrolling="no"
+      ></iframe>
+    </div>
+    <div class="row no-gutters w-100">
+      <div class="embed-responsive col-sm-4 p-0">
+        <iframe
+          class="emembed-responsive-item"
+          id="loginleftframe"
+          src="about:blank"
+          frameborder="0"
+          style="position: relative; height: 100%; width: 100%;"
+          scrolling="no"
+        ></iframe>
+      </div>
+      <div class="col-12 p-0">
+        <div
+          id="layout-content"
+          class="selected no-navbar px-3 pt-4 pb-1"
+          role="main"
+          style="
+            position: fixed;
+            bottom: 12%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 360px;
+            background-color: rgba(255,255,255,0.0);
+            border-radius: 10px;
+            z-index: 999;
+          "
+        >
+          <h1 class="voice">
+            <roundcube:object name="productname" />
+            <roundcube:label name="login" />
+          </h1>
+          <roundcube:form
+            id="login-form"
+            name="login-form"
+            method="post"
+            class="propform"
+          >
+            <roundcube:object
+              name="loginform"
+              form="login-form"
+              size="40"
+              submit="true"
+            />
+      <!--      <span style="color: blue;">
+                            <p class="sans" >Need assistance on getting started with Baya V3?
+                                <a style="color: red;" href="https://skyconnect.mithi.com/docs/baya-v3/migration-from-baya-v2-to-baya-v3/" target="_blank"><br>Click Here.</a>
+                            </p>
+                        </span> -->
+          </roundcube:form>
+          <noscript>
+            <p class="noscriptwarning">
+              <roundcube:label name="noscriptwarning" />
+            </p>
+          </noscript>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<roundcube:include file="includes/footer.html" />
+<style>
+  /* Ensure background is always centered before JS kicks in */
+  #loginbody {
+    background-position: center center !important;
+  }
+
+  /* On small/mobile screens, anchor login panel from the bottom so LOGIN button is always visible */
+  @media (max-width: 600px) {
+    #layout-content {
+      top: auto !important;
+      bottom: 2% !important;
+      transform: translateX(-50%) !important;
+      max-height: 55vh;
+      overflow-y: auto;
+    }
+  }
+</style>
+<script>
+  function loadBackground() {
+    var path = 'media/' + window.location.hostname + '/';
+    var bgDefaultFile = 'bg_default.txt';
+    var bgStyleFile = 'bg_style.txt';
+    var cacheBreaker = '?s=' + new Date().getTime();
+    var defaultStyleText = "background-image: url('skins/elastic/SkyconnectLoginPageOptimal.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;";
+    var loginBody = document.getElementById('loginbody');
+    $.ajax({
+      type: 'GET',
+      url: path + bgDefaultFile + cacheBreaker,
+      success: function(data) {
+        var isDefault = data.replace(/(\r\n|\n|\r)/gm, "");
+        if (isDefault !== 'true') {
+          $.ajax({
+            type: 'GET',
+            url: path + bgStyleFile + cacheBreaker,
+            success: function(data) {
+              var style = data.replace(/(\r\n|\n|\r)/gm, "");
+              loginBody.style.cssText = style;
+            },
+            error: function(error) {
+              loginBody.style.cssText = defaultStyleText;
+            }
+          });
+        } else {
+          loginBody.style.cssText = defaultStyleText;
+        }
+      },
+      error: function(error) {
+        //console.log(error);
+        loginBody.style.cssText = defaultStyleText;
+      }
+    });
+  }
+
+  function loadFrameSources() {
+    var path = 'media/' + window.location.hostname + '/';
+    var checkFilePath = path + 'top_frame_content.html';
+    var cacheBreaker = '?s=' + new Date().getTime();
+    var url = checkFilePath + cacheBreaker;
+    $.ajax({
+      type: 'HEAD',
+      url: url,
+      success: function(data){
+        document.getElementById('logintopframe').setAttribute('src', path + 'top_frame_content.html' + cacheBreaker);
+        document.getElementById('loginrightframe').setAttribute('src', path + 'right_frame_content.html' + cacheBreaker);
+        document.getElementById('loginbottomframe').setAttribute('src', path + 'bottom_frame_content.html' + cacheBreaker);
+        document.getElementById('loginleftframe').setAttribute('src', path + 'left_frame_content.html'+ cacheBreaker);
+      },
+      error: function(error) {
+        document.getElementById('logintopframe').setAttribute('src', 'about:blank');
+        document.getElementById('loginrightframe').setAttribute('src',  'about:blank');
+        document.getElementById('loginbottomframe').setAttribute('src',  'about:blank');
+        document.getElementById('loginleftframe').setAttribute('src', 'about:blank');
+      }
+    });
+  }
+  function cacheBackgroundImage() {
+    var deposit = document.getElementById("deposit");
+    deposit.parentNode.removeChild(deposit);
+  }
+  function preventPasswordAndCaptchaPaste() {
+    var pwdInput = document.getElementById("rcmloginpwd");
+    var captchaInput = document.getElementById("drcaptcha");
+    if (captchaInput) {
+      captchaInput.placeholder = "Captcha";
+      captchaInput.onpaste = function(e) {
+        e.preventDefault();
+      };
+    }
+    pwdInput.onpaste = function(e) {
+      e.preventDefault();
+    };
+  }
+  function displayCaptcha() {
+    var captchaCell = document.querySelector(".captcha");
+    if (captchaCell) {
+      var captchaRow = captchaCell.parentElement;
+      var captchaTable = captchaRow.parentElement.parentElement;
+      captchaTable.classList.add("table", "table-borderless", "p-1");
+      captchaTable.style.display = "table";
+      captchaRow.classList.remove("row");
+      captchaCell.classList.add("p-0", "pr-2");
+      captchaCell.nextElementSibling.classList.add("p-0");
+    }
+  }
+  window.onload = function() {
+    cacheBackgroundImage();
+    if (window.matchMedia("(min-width: 825px)").matches) {
+      loadFrameSources();
+      loadBackground();
+    } else {
+      loadBackground();
+    }
+    displayCaptcha();
+    preventPasswordAndCaptchaPaste();
+  };
+</script>

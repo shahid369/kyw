@@ -500,7 +500,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             // ── App Version ──────────────────────────────────────────────
             Center(
               child: Text(
-                'KYW v1.0.0 · Built with ♥',
+                'KYW v1.0.1 · Built with ♥',
                 style: TextStyle(fontSize: 12, color: mutedColor),
               ),
             ),
@@ -657,13 +657,15 @@ class _ProfileField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       controller: controller,
       textInputAction: TextInputAction.next,
+      maxLength: 50,
       style: TextStyle(color: isDark ? DarkColors.text : AppColors.text, fontSize: 15),
       decoration: InputDecoration(
         labelText: label,
         prefixIcon: Icon(icon, size: 18, color: iconColor ?? (isDark ? DarkColors.muted : AppColors.muted)),
+        counterText: '',
       ),
     );
   }

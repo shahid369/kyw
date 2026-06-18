@@ -13,6 +13,7 @@ import '../widgets/kyw_logo.dart';
 
 import '../services/notification_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
@@ -22,6 +23,11 @@ class DashboardScreen extends ConsumerStatefulWidget {
 }
 
 class _DashboardScreenState extends ConsumerState<DashboardScreen> {
+  final GlobalKey _actionKey = GlobalKey();
+  final GlobalKey _ringKey = GlobalKey();
+  final GlobalKey _guideKey = GlobalKey();
+  bool _hasCheckedOnboarding = false;
+
   @override
   void initState() {
     super.initState();
@@ -187,9 +193,111 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     }
   }
 
+  void _showTour() {
+    List<TargetFocus> targets = [];
+    
+    if (_actionKey.currentContext != null) {
+      targets.add(TargetFocus(
+        identify: "actionKey",
+        keyTarget: _actionKey,
+        contents: [
+          TargetContent(
+            align: ContentAlign.bottom,
+            builder: (context, controller) => const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text("Log her period", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20)),
+                SizedBox(height: 10),
+                Text("Tap here to start or end logging a period cycle. It's that simple!", style: TextStyle(color: Colors.white)),
+              ],
+            ),
+          )
+        ],
+      ));
+    }
+    
+    if (_ringKey.currentContext != null) {
+      targets.add(TargetFocus(
+        identify: "ringKey",
+        keyTarget: _ringKey,
+        contents: [
+          TargetContent(
+            align: ContentAlign.bottom,
+            builder: (context, controller) => const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text("Phase Ring", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20)),
+                SizedBox(height: 10),
+                Text("This ring shows you exactly where she is in her current cycle.", style: TextStyle(color: Colors.white)),
+              ],
+            ),
+          )
+        ],
+      ));
+    }
+
+    if (_guideKey.currentContext != null) {
+      targets.add(TargetFocus(
+        identify: "guideKey",
+        keyTarget: _guideKey,
+        contents: [
+          TargetContent(
+            align: ContentAlign.top,
+            builder: (context, controller) => const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text("Today's Guide", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20)),
+                SizedBox(height: 10),
+                Text("Read personalized tips on how to support her today based on her phase.", style: TextStyle(color: Colors.white)),
+              ],
+            ),
+          )
+        ],
+      ));
+    }
+
+    if (targets.isEmpty) return;
+
+    TutorialCoachMark(
+      targets: targets,
+      colorShadow: AppColors.primary,
+      textSkip: "SKIP",
+      paddingFocus: 10,
+      opacityShadow: 0.8,
+    ).show(context: context);
+  }
+
+  void _checkOnboarding(List<Cycle> cycles) async {
+    if (_hasCheckedOnboarding) return;
+    _hasCheckedOnboarding = true;
+
+    final prefs = await SharedPreferences.getInstance();
+    final hasSeenOnboarding = prefs.getBool('kyw_has_seen_onboarding') ?? false;
+    
+    if (cycles.isEmpty && !hasSeenOnboarding) {
+      if (mounted) context.go('/onboarding');
+      return;
+    }
+    
+    final hasSeenTour = prefs.getBool('kyw_has_seen_tour') ?? false;
+    if (!hasSeenTour && cycles.isNotEmpty) {
+      Future.delayed(const Duration(milliseconds: 1000), () {
+        if (mounted) _showTour();
+      });
+      await prefs.setBool('kyw_has_seen_tour', true);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final cyclesAsync = ref.watch(cyclesProvider);
+    if (cyclesAsync is AsyncData) {
+      _checkOnboarding(cyclesAsync.value ?? []);
+    }
+
     final profileAsync = ref.watch(userProfileProvider);
     final cycles = cyclesAsync.value ?? [];
     final profile = profileAsync.value;
@@ -259,6 +367,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
 
               // Smart Action
               Container(
+                key: _actionKey,
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -353,6 +462,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                   runSpacing: 12,
                                   children: [
                                     ElevatedButton.icon(
+                                      key: _guideKey,
                                       onPressed: () => context.push('/guide'),
                                       icon: const Icon(LucideIcons.book, size: 16),
                                       label: const Text('Today\'s Guide'),
@@ -373,6 +483,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                           ),
                           const SizedBox(width: 16),
                           PhaseRing(
+                            key: _ringKey,
                             phase: phaseInfo.phase, 
                             progress: phaseInfo.cycleProgress, 
                             dayInCycle: phaseInfo.dayInCycle,
