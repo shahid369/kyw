@@ -26,13 +26,11 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
   Future<void> _signUp() async {
     if (!_formKey.currentState!.validate()) return;
     setState(() => _isLoading = true);
+    ref.read(signupLoadingProvider.notifier).set(true);
+    final stopwatch = Stopwatch()..start();
 
     try {
       final client = ref.read(supabaseClientProvider);
-
-      // Reset the onboarding flag so the new account sees the setup screen
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setBool('kyw_has_seen_onboarding', false);
 
       // 1. Create auth user
       final response = await client.auth.signUp(
@@ -43,6 +41,10 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
       final userId = response.user?.id;
       if (userId == null) throw Exception('Sign up failed — no user returned.');
 
+      // Reset the onboarding flag so the new account sees the setup screen
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('kyw_has_seen_onboarding_$userId', false);
+
       // 2. Upsert profile
       await client.from('profiles').upsert({
         'id': userId,
@@ -51,18 +53,37 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
         'default_cycle_length': 28,
       });
 
-      // Router will redirect automatically via auth state change
+      // Enforce minimum duration for a premium, polished feel
+      final elapsed = stopwatch.elapsed;
+      const minimumDuration = Duration(seconds: 3);
+      if (elapsed < minimumDuration) {
+        await Future.delayed(minimumDuration - elapsed);
+      }
     } on AuthException catch (error) {
+      final elapsed = stopwatch.elapsed;
+      const minimumDuration = Duration(seconds: 3);
+      if (elapsed < minimumDuration) {
+        await Future.delayed(minimumDuration - elapsed);
+      }
+
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(error.message), backgroundColor: AppColors.phaseMenstrual),
       );
     } catch (error) {
+      final elapsed = stopwatch.elapsed;
+      const minimumDuration = Duration(seconds: 3);
+      if (elapsed < minimumDuration) {
+        await Future.delayed(minimumDuration - elapsed);
+      }
+
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(error.toString()), backgroundColor: AppColors.phaseMenstrual),
       );
     } finally {
+      stopwatch.stop();
+      ref.read(signupLoadingProvider.notifier).set(false);
       if (mounted) setState(() => _isLoading = false);
     }
   }

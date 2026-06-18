@@ -274,20 +274,23 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     if (_hasCheckedOnboarding) return;
     _hasCheckedOnboarding = true;
 
+    final user = ref.read(currentUserProvider);
+    if (user == null) return;
+
     final prefs = await SharedPreferences.getInstance();
-    final hasSeenOnboarding = prefs.getBool('kyw_has_seen_onboarding') ?? false;
+    final hasSeenOnboarding = prefs.getBool('kyw_has_seen_onboarding_${user.id}') ?? false;
     
     if (cycles.isEmpty && !hasSeenOnboarding) {
       if (mounted) context.go('/onboarding');
       return;
     }
     
-    final hasSeenTour = prefs.getBool('kyw_has_seen_tour') ?? false;
+    final hasSeenTour = prefs.getBool('kyw_has_seen_tour_${user.id}') ?? false;
     if (!hasSeenTour && cycles.isNotEmpty) {
       Future.delayed(const Duration(milliseconds: 1000), () {
         if (mounted) _showTour();
       });
-      await prefs.setBool('kyw_has_seen_tour', true);
+      await prefs.setBool('kyw_has_seen_tour_${user.id}', true);
     }
   }
 

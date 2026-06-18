@@ -59,3 +59,12 @@ final cyclesProvider = FutureProvider<List<Cycle>>((ref) async {
 
   return (response as List).map((data) => Cycle.fromMap(data)).toList();
 });
+
+class SignupLoading extends Notifier<bool> {
+  @override
+  bool build() => false;
+
+  void set(bool value) => state = value;
+}
+
+final signupLoadingProvider = NotifierProvider<SignupLoading, bool>(SignupLoading.new);

@@ -39,7 +39,12 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
 
   Future<void> _skipOnboarding() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('kyw_has_seen_onboarding', true);
+    final user = ref.read(currentUserProvider);
+    if (user != null) {
+      await prefs.setBool('kyw_has_seen_onboarding_${user.id}', true);
+    } else {
+      await prefs.setBool('kyw_has_seen_onboarding', true);
+    }
     if (!mounted) return;
     context.go('/');
   }

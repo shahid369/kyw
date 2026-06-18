@@ -11,11 +11,15 @@ import '../screens/guide_screen.dart';
 import '../screens/settings_screen.dart';
 import '../screens/main_shell.dart';
 import '../screens/onboarding_screen.dart';
+import 'providers.dart';
 
 /// Notifies GoRouter to re-evaluate redirects whenever auth state changes.
 class _AuthNotifier extends ChangeNotifier {
-  _AuthNotifier() {
+  _AuthNotifier(Ref ref) {
     _sub = Supabase.instance.client.auth.onAuthStateChange.listen((_) {
+      notifyListeners();
+    });
+    ref.listen(signupLoadingProvider, (_, __) {
       notifyListeners();
     });
   }
@@ -29,13 +33,16 @@ class _AuthNotifier extends ChangeNotifier {
 }
 
 final routerProvider = Provider<GoRouter>((ref) {
-  final notifier = _AuthNotifier();
+  final notifier = _AuthNotifier(ref);
   ref.onDispose(notifier.dispose);
 
   return GoRouter(
     initialLocation: '/',
     refreshListenable: notifier,
     redirect: (context, state) {
+      final isSignupLoading = ref.read(signupLoadingProvider);
+      if (isSignupLoading) return null;
+
       final session = Supabase.instance.client.auth.currentSession;
       final isAuth = session != null;
       final path = state.uri.path;
