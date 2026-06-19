@@ -12,7 +12,12 @@ class AdHelper {
         return 'ca-app-pub-3940256099942544/2934735716';
       }
     }
-    // TODO: Replace with production AdUnit IDs
+    if (Platform.isAndroid) {
+      return 'ca-app-pub-1057630872229405/6392968780';
+    } else if (Platform.isIOS) {
+      // TODO: Replace with production iOS Banner ID when available
+      return '';
+    }
     return '';
   }
 
@@ -24,7 +29,12 @@ class AdHelper {
         return 'ca-app-pub-3940256099942544/4411468910';
       }
     }
-    // TODO: Replace with production AdUnit IDs
+    if (Platform.isAndroid) {
+      return 'ca-app-pub-1057630872229405/9683678236';
+    } else if (Platform.isIOS) {
+      // TODO: Replace with production iOS Interstitial ID when available
+      return '';
+    }
     return '';
   }
 }
