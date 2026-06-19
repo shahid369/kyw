@@ -1,18 +1,13 @@
 {
   "android/app/build.gradle.kts": {
-    "mtime": 1776273384.921119,
-    "ast_hash": "3965e711ed7a278e8297b7f5c9499e29",
-    "semantic_hash": "3965e711ed7a278e8297b7f5c9499e29"
+    "mtime": 1781799670.6286345,
+    "ast_hash": "3c57bf70851c81d4448b3c05e8e9400a",
+    "semantic_hash": ""
   },
   "android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java": {
-    "mtime": 1776272700.310934,
-    "ast_hash": "3efa9a73ab23d76ed57f00cc5dcc7aa9",
-    "semantic_hash": "3efa9a73ab23d76ed57f00cc5dcc7aa9"
-  },
-  "android/app/src/main/kotlin/com/kyw/kyw_mobile/MainActivity.kt": {
-    "mtime": 1775712387.869262,
-    "ast_hash": "4260415c3a8e47f4b865ce1fcc42384e",
-    "semantic_hash": "4260415c3a8e47f4b865ce1fcc42384e"
+    "mtime": 1781798022.4921522,
+    "ast_hash": "318a4d57e72175d3c015d751cc776b3f",
+    "semantic_hash": ""
   },
   "android/build.gradle.kts": {
     "mtime": 1775712387.8702607,
@@ -65,9 +60,9 @@
     "semantic_hash": "decb9041b5e91a07e66f4664e5dac408"
   },
   "ios/Runner/GeneratedPluginRegistrant.m": {
-    "mtime": 1776272700.3329818,
-    "ast_hash": "4aa6b91984c9e5454f36416d260d220c",
-    "semantic_hash": "4aa6b91984c9e5454f36416d260d220c"
+    "mtime": 1781798022.5054708,
+    "ast_hash": "7208555867d3d2fcd23064a4a92ff1f8",
+    "semantic_hash": ""
   },
   "ios/Runner/Runner-Bridging-Header.h": {
     "mtime": 1761234127.4178452,
@@ -100,13 +95,13 @@
     "semantic_hash": "f37f7c1007f22d7682765eb57762b592"
   },
   "lib/main.dart": {
-    "mtime": 1778316688.5352192,
-    "ast_hash": "32f945d82eec1d91143bc9fa5377f87f",
-    "semantic_hash": "32f945d82eec1d91143bc9fa5377f87f"
+    "mtime": 1781800517.3142629,
+    "ast_hash": "f05cd0d7cd87d7989a65951afc80efa6",
+    "semantic_hash": ""
   },
   "lib/screens/dashboard_screen.dart": {
-    "mtime": 1781795943.458954,
-    "ast_hash": "aeae1b1d8e0a9c346964b061b355b2dd",
+    "mtime": 1781801410.878327,
+    "ast_hash": "490f0765c11660cac9c2dfbfc207296f",
     "semantic_hash": ""
   },
   "lib/screens/guide_screen.dart": {
@@ -125,9 +120,9 @@
     "semantic_hash": "feb25c18e4c974151b6b5dee1a180f93"
   },
   "lib/screens/login_screen.dart": {
-    "mtime": 1778316611.166353,
-    "ast_hash": "35c7379dda6f90b0d77a8112f46cad74",
-    "semantic_hash": "35c7379dda6f90b0d77a8112f46cad74"
+    "mtime": 1781801392.9802878,
+    "ast_hash": "013467353bb9bcaa8e75fb958786d281",
+    "semantic_hash": ""
   },
   "lib/screens/main_shell.dart": {
     "mtime": 1776270474.28208,
@@ -135,8 +130,8 @@
     "semantic_hash": "c9cb87f79edba74c02519481bd09d6ee"
   },
   "lib/screens/onboarding_screen.dart": {
-    "mtime": 1781795937.76716,
-    "ast_hash": "cce3add55fd7f5dcd99cab7fa5e08a63",
+    "mtime": 1781801421.9242673,
+    "ast_hash": "225ff8714b118d75d748340844796f6d",
     "semantic_hash": ""
   },
   "lib/screens/settings_screen.dart": {
@@ -145,8 +140,8 @@
     "semantic_hash": "c40aea7fd2b76c41cdf1a4058e1f0d46"
   },
   "lib/screens/signup_screen.dart": {
-    "mtime": 1781797712.6626725,
-    "ast_hash": "97f9384d18f0da0a19b8878edc0609f7",
+    "mtime": 1781801398.6215029,
+    "ast_hash": "4d20eb5326dcd7743b86b61755ef5197",
     "semantic_hash": ""
   },
   "lib/services/notification_service.dart": {
@@ -155,9 +150,9 @@
     "semantic_hash": "5e6f99689ce89aae7c72e64370d71214"
   },
   "lib/theme/app_theme.dart": {
-    "mtime": 1776270353.3736873,
-    "ast_hash": "91a3213453bfe6cd2c4a888958f765be",
-    "semantic_hash": "91a3213453bfe6cd2c4a888958f765be"
+    "mtime": 1781801387.1357768,
+    "ast_hash": "503c972e64ec3fe9c776cc99f261291c",
+    "semantic_hash": ""
   },
   "lib/widgets/calendar_picker.dart": {
     "mtime": 1776344120.601931,
@@ -205,9 +200,9 @@
     "semantic_hash": "f6b37d58752c8671078b6f660e33e8c1"
   },
   "macos/Flutter/GeneratedPluginRegistrant.swift": {
-    "mtime": 1776272700.3358748,
-    "ast_hash": "0584f982c65613b01b8e470129660ddd",
-    "semantic_hash": "0584f982c65613b01b8e470129660ddd"
+    "mtime": 1781798022.507775,
+    "ast_hash": "b1f0a34db3ff24ee035c029e95b51759",
+    "semantic_hash": ""
   },
   "macos/Flutter/ephemeral/flutter_export_environment.sh": {
     "mtime": 1781797133.4940534,
@@ -350,9 +345,9 @@
     "semantic_hash": "703093e261b3de582eb937783b6b19b5"
   },
   "linux/CMakeLists.txt": {
-    "mtime": 1775712388.0726569,
-    "ast_hash": "5ffaa75c04a3e75339a20be745aabf74",
-    "semantic_hash": "5ffaa75c04a3e75339a20be745aabf74"
+    "mtime": 1781799675.5975296,
+    "ast_hash": "7c030c3000dc18e7f5120e252ee6ad73",
+    "semantic_hash": ""
   },
   "linux/flutter/CMakeLists.txt": {
     "mtime": 1761234127.4340024,
@@ -375,9 +370,9 @@
     "semantic_hash": "1f1e3c80680509675098f111159a433c"
   },
   "pubspec.yaml": {
-    "mtime": 1776346434.0076966,
-    "ast_hash": "d9360124b8f85217606e3c2ecd281540",
-    "semantic_hash": "d9360124b8f85217606e3c2ecd281540"
+    "mtime": 1781799900.8275,
+    "ast_hash": "49f6951312655ba6a833ba7ba9647f3a",
+    "semantic_hash": ""
   },
   "web/index.html": {
     "mtime": 1775712388.1975524,
@@ -637,6 +632,26 @@
   "filter_csv.py": {
     "mtime": 1781764342.7743866,
     "ast_hash": "9f60b46529783d620e5cc7eb5ac0f3f5",
+    "semantic_hash": ""
+  },
+  "android/app/src/main/kotlin/com/knowyourwomen/kyw/MainActivity.kt": {
+    "mtime": 1781799681.2715826,
+    "ast_hash": "ad6f839a993fe20fc9bd527cae511369",
+    "semantic_hash": ""
+  },
+  "lib/screens/profile_setup_screen.dart": {
+    "mtime": 1781801417.3637457,
+    "ast_hash": "422895a186a32be79c3b1c1839c91935",
+    "semantic_hash": ""
+  },
+  "client_secret_613476373962-m0o41h41h945stage5odljnf2knmtbio.apps.googleusercontent.com.json": {
+    "mtime": 1781800070.608087,
+    "ast_hash": "f2cd2887cb88e0eeb09ddd3d3caa1683",
+    "semantic_hash": ""
+  },
+  "lib/core/config.dart": {
+    "mtime": 1781800630.106899,
+    "ast_hash": "9006b3b43380b1c44020a49145bf42c2",
     "semantic_hash": ""
   }
 }

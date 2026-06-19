@@ -96,7 +96,7 @@ ButtonStyle _elevatedButtonStyle() {
     foregroundColor: Colors.white,
     elevation: 0,
     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(999)),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
     textStyle: GoogleFonts.spaceGrotesk(fontSize: 15, fontWeight: FontWeight.w600),
   );
 }
@@ -106,7 +106,7 @@ ButtonStyle _outlinedButtonStyle(Color borderColor, Color textColor) {
     foregroundColor: textColor,
     side: BorderSide(color: borderColor),
     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(999)),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
     textStyle: GoogleFonts.spaceGrotesk(fontSize: 15, fontWeight: FontWeight.w600),
   );
 }

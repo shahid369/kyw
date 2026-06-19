@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:lucide_icons/lucide_icons.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import '../theme/app_theme.dart';
+import '../services/banner_ad_widget.dart';
 
 /// Persistent shell with bottom navigation across 5 main screens.
 class MainShell extends StatelessWidget {
@@ -25,7 +26,12 @@ class MainShell extends StatelessWidget {
     final navBorder = isDark ? DarkColors.border : AppColors.border;
 
     return Scaffold(
-      body: navigationShell,
+      body: Column(
+        children: [
+          Expanded(child: navigationShell),
+          const BannerAdWidget(),
+        ],
+      ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: navBg,

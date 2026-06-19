@@ -1,4 +1,4 @@
-package com.kyw.kyw_mobile
+package com.knowyourwomen.kyw
 
 import io.flutter.embedding.android.FlutterActivity
 

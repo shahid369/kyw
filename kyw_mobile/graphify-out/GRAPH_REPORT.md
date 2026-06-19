@@ -1,16 +1,16 @@
 # Graph Report - kyw_mobile  (2026-06-18)
 
 ## Corpus Check
-- 70 files · ~80,922 words
+- 73 files · ~81,950 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 729 nodes · 925 edges · 52 communities (42 shown, 10 thin omitted)
+- 751 nodes · 966 edges · 56 communities (46 shown, 10 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `36aa0b6e`
+- Built from commit: `07fb5f74`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -57,11 +57,15 @@
 - [[_COMMUNITY_Community 48|Community 48]]
 - [[_COMMUNITY_Community 49|Community 49]]
 - [[_COMMUNITY_Community 50|Community 50]]
+- [[_COMMUNITY_Community 52|Community 52]]
+- [[_COMMUNITY_Community 53|Community 53]]
+- [[_COMMUNITY_Community 54|Community 54]]
+- [[_COMMUNITY_Community 55|Community 55]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `supabaseClientProvider` - 18 edges
-2. `⭐ KYW Pro — All Features (60+)` - 14 edges
-3. `currentUserProvider` - 13 edges
+1. `supabaseClientProvider` - 22 edges
+2. `currentUserProvider` - 16 edges
+3. `⭐ KYW Pro — All Features (60+)` - 14 edges
 4. `userProfileProvider` - 12 edges
 5. `KYW — Full Monetization & Pro Features Plan` - 12 edges
 6. `cyclesProvider` - 11 edges
@@ -71,21 +75,21 @@
 10. `WndProc()` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `_signInWithGoogle` --references--> `supabaseClientProvider`  [EXTRACTED]
+  lib/screens/login_screen.dart → lib/core/providers.dart
 - `wWinMain()` --calls--> `CreateAndAttachConsole()`  [INFERRED]
   windows/runner/main.cpp → windows/runner/utils.cpp
+- `_DashboardScreenState` --references--> `supabaseClientProvider`  [EXTRACTED]
+  lib/screens/dashboard_screen.dart → lib/core/providers.dart
 - `_deleteCycle` --references--> `supabaseClientProvider`  [EXTRACTED]
   lib/screens/history_screen.dart → lib/core/providers.dart
 - `_HistoryScreenState` --references--> `supabaseClientProvider`  [EXTRACTED]
   lib/screens/history_screen.dart → lib/core/providers.dart
-- `_signIn` --references--> `supabaseClientProvider`  [EXTRACTED]
-  lib/screens/login_screen.dart → lib/core/providers.dart
-- `_deleteAccount` --references--> `supabaseClientProvider`  [EXTRACTED]
-  lib/screens/settings_screen.dart → lib/core/providers.dart
 
 ## Import Cycles
 - None detected.
 
-## Communities (52 total, 10 thin omitted)
+## Communities (56 total, 10 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -97,11 +101,11 @@ Nodes (34): RegisterPlugins(), PluginRegistry, Point, RECT, OnCreate(), Create()
 
 ### Community 2 - "Community 2"
 Cohesion: 0.05
-Nodes (41): _StatCard, _DosDontsCard, MainShell, _AlertBanner, animDelay, child, controller, createState (+33 more)
+Nodes (40): _StatCard, MainShell, _AlertBanner, animDelay, child, controller, createState, _dailyReminders (+32 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.07
-Nodes (30): ChangeNotifier, ConsumerWidget, SignupLoading, _AuthNotifier, core/router.dart, dispose, notifier, routerProvider (+22 more)
+Cohesion: 0.11
+Nodes (18): authState, authStateProvider, build, client, defaultCycleLength, fromMap, id, name (+10 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.05
@@ -116,28 +120,28 @@ Cohesion: 0.11
 Nodes (22): FlPluginRegistry, fl_register_plugins(), FlView, GApplication, gboolean, gchar, GObject, GtkApplication (+14 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.09
-Nodes (21): FlutterLocalNotificationsPlugin, IOSFlutterLocalNotificationsPlugin, package:flutter_local_notifications/flutter_local_notifications.dart, package:flutter_timezone/flutter_timezone.dart, package:permission_handler/permission_handler.dart, package:timezone/data/latest_all.dart, package:timezone/timezone.dart, GeneratedPluginRegistrant (+13 more)
+Cohesion: 0.07
+Nodes (26): AppConfig, googleIosClientId, googleWebClientId, supabaseAnonKey, supabaseUrl, FlutterLocalNotificationsPlugin, IOSFlutterLocalNotificationsPlugin, package:flutter_local_notifications/flutter_local_notifications.dart (+18 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.12
-Nodes (15): GlobalKey, package:tutorial_coach_mark/tutorial_coach_mark.dart, _actionKey, _confirmAction, createState, _guideKey, _hasCheckedOnboarding, icon (+7 more)
+Nodes (16): GlobalKey, package:tutorial_coach_mark/tutorial_coach_mark.dart, profile_setup_screen.dart, _actionKey, _confirmAction, createState, _guideKey, _hasCheckedOnboarding (+8 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.13
 Nodes (12): Any, FlutterAppDelegate, Bool, Flutter, AppDelegate, UIKit, Bool, Cocoa (+4 more)
 
 ### Community 10 - "Community 10"
-Cohesion: 0.12
-Nodes (14): app_links, RegisterGeneratedPlugins(), flutter_local_notifications, flutter_timezone, FlutterPluginRegistry, Foundation, FlutterMacOS, Cocoa (+6 more)
+Cohesion: 0.11
+Nodes (15): app_links, RegisterGeneratedPlugins(), flutter_local_notifications, flutter_timezone, FlutterPluginRegistry, Foundation, google_sign_in_ios, FlutterMacOS (+7 more)
 
 ### Community 11 - "Community 11"
-Cohesion: 0.05
-Nodes (56): ConsumerState, ConsumerStatefulWidget, authState, authStateProvider, build, client, currentUserProvider, cyclesProvider (+48 more)
+Cohesion: 0.15
+Nodes (18): currentUserProvider, supabaseClientProvider, Route /, Route /onboarding, _checkOnboarding, _endPeriod, _startPeriod, _deleteCycle (+10 more)
 
 ### Community 12 - "Community 12"
-Cohesion: 0.18
-Nodes (10): FormState, package:go_router/go_router.dart, Route /signup, build, createState, dispose, _emailController, _formKey (+2 more)
+Cohesion: 0.11
+Nodes (17): ../core/config.dart, core/router.dart, ../core/theme_provider.dart, initialize, main, package:google_sign_in/google_sign_in.dart, package:supabase_flutter/supabase_flutter.dart, Route /signup (+9 more)
 
 ### Community 13 - "Community 13"
 Cohesion: 0.04
@@ -148,8 +152,8 @@ Cohesion: 0.07
 Nodes (27): FEATURE P4-1: Gamification — Badges, Partner Score & Levels, FEATURE P4-2: Education Cards & Myth Busting, FEATURE P4-3: Partner Photo (Local Only), FEATURE P4-4: Monthly Wrap-Up Shareable Card, FEATURE P4-5: Home Screen Widget (Android — Glance API), HOW TO USE THESE PROMPTS, IMPLEMENTATION ORDER SUMMARY, KYW Dev Plan — Part 4: Phase 4 Polish & Growth Features (+19 more)
 
 ### Community 15 - "Community 15"
-Cohesion: 0.17
-Nodes (11): package:flutter/services.dart, build, createState, dispose, _endDate, _error, _isLoading, _periodLengthController (+3 more)
+Cohesion: 0.11
+Nodes (17): CyclePhase, ../core/cycle_engine.dart, package:flutter_animate/flutter_animate.dart, package:flutter/services.dart, build, createState, dispose, _endDate (+9 more)
 
 ### Community 16 - "Community 16"
 Cohesion: 0.08
@@ -184,8 +188,8 @@ Cohesion: 0.22
 Nodes (8): DartProject, MessageHandler(), HWND, LPARAM, LRESULT, FlutterWindow(), UINT, WPARAM
 
 ### Community 24 - "Community 24"
-Cohesion: 0.20
-Nodes (9): IconData, build, icon, label, navigationShell, _NavTab, _tabs, StatefulNavigationShell (+1 more)
+Cohesion: 0.18
+Nodes (10): IconData, package:go_router/go_router.dart, build, icon, label, navigationShell, _NavTab, _tabs (+2 more)
 
 ### Community 25 - "Community 25"
 Cohesion: 0.22
@@ -200,40 +204,56 @@ Cohesion: 0.25
 Nodes (7): package:google_fonts/google_fonts.dart, color, ../theme/app_theme.dart, build, fontSize, kColor, wColor
 
 ### Community 28 - "Community 28"
-Cohesion: 0.12
-Nodes (17): signupLoadingProvider, Route /login, build, _buildField, createState, dispose, _emailController, _formKey (+9 more)
+Cohesion: 0.14
+Nodes (13): Route /login, build, _buildField, createState, dispose, _emailController, _formKey, _isLoading (+5 more)
 
 ### Community 29 - "Community 29"
 Cohesion: 0.33
 Nodes (5): handle_new_rx_page(), __lldb_init_module(), Intercept NOTIFY_DEBUGGER_ABOUT_RX_PAGES and touch the pages., SBDebugger, SBFrame
 
 ### Community 31 - "Community 31"
-Cohesion: 0.29
-Nodes (6): CyclePhase, ../core/cycle_engine.dart, package:flutter_animate/flutter_animate.dart, animate, build, phase
+Cohesion: 0.11
+Nodes (17): ChangeNotifier, SignupLoading, _AuthNotifier, dispose, notifier, _sub, GoRouter, providers.dart (+9 more)
 
 ### Community 37 - "Community 37"
-Cohesion: 0.18
-Nodes (12): ../core/guide_content.dart, ../core/providers.dart, List, package:flutter_riverpod/flutter_riverpod.dart, package:intl/intl.dart, package:lucide_icons/lucide_icons.dart, isDoSection, items (+4 more)
+Cohesion: 0.16
+Nodes (13): ../core/guide_content.dart, ../core/providers.dart, List, package:flutter_riverpod/flutter_riverpod.dart, package:intl/intl.dart, package:lucide_icons/lucide_icons.dart, _DosDontsCard, isDoSection (+5 more)
+
+### Community 52 - "Community 52"
+Cohesion: 0.21
+Nodes (14): cyclesProvider, userProfileProvider, Route /guide, Route /history, Route /log, build, _DashboardScreenState, _promptNotifications (+6 more)
+
+### Community 53 - "Community 53"
+Cohesion: 0.22
+Nodes (8): FormState, build, createState, dispose, _formKey, _isLoading, _nameController, _partnerNameController
+
+### Community 54 - "Community 54"
+Cohesion: 0.19
+Nodes (14): ConsumerState, ConsumerStatefulWidget, DashboardScreen, LogScreen, _LogScreenState, LoginScreen, _LoginScreenState, OnboardingScreen (+6 more)
+
+### Community 55 - "Community 55"
+Cohesion: 0.40
+Nodes (6): ConsumerWidget, routerProvider, themeModeProvider, build, KYWMobileApp, build
 
 ## Knowledge Gaps
-- **405 isolated node(s):** `SBFrame`, `SBDebugger`, `flutter_export_environment.sh script`, `Flutter`, `UIKit` (+400 more)
+- **416 isolated node(s):** `SBFrame`, `SBDebugger`, `flutter_export_environment.sh script`, `Flutter`, `UIKit` (+411 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `CyclePhase` connect `Community 31` to `Community 0`, `Community 4`?**
+- **Why does `CyclePhase` connect `Community 15` to `Community 0`, `Community 4`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
+- **Why does `supabaseClientProvider` connect `Community 11` to `Community 3`, `Community 37`, `Community 12`, `Community 52`, `Community 54`?**
+  _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **Why does `color` connect `Community 27` to `Community 8`, `Community 2`, `Community 4`?**
   _High betweenness centrality (0.005) - this node is a cross-community bridge._
-- **Why does `supabaseClientProvider` connect `Community 11` to `Community 28`, `Community 37`?**
-  _High betweenness centrality (0.005) - this node is a cross-community bridge._
 - **What connects `SBFrame`, `SBDebugger`, `Intercept NOTIFY_DEBUGGER_ABOUT_RX_PAGES and touch the pages.` to the rest of the system?**
-  _406 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _417 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.08658536585365853 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.05226480836236934 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05365853658536585 - nodes in this community are weakly interconnected._

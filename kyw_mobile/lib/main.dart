@@ -4,26 +4,27 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'theme/app_theme.dart';
 import 'core/router.dart';
 import 'core/theme_provider.dart';
+import 'core/config.dart';
 import 'services/notification_service.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'services/ad_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  const supabaseUrl = String.fromEnvironment(
-    'SUPABASE_URL',
-    defaultValue: 'https://wnisxixzztvomixnpkls.supabase.co', // TODO: Remove default in production and use --dart-define
-  );
-  const supabaseAnonKey = String.fromEnvironment(
-    'SUPABASE_ANON_KEY',
-    defaultValue: 'sb_publishable_MQvk-2GXP7Jyw9Yg0pxJeg_D2PbFpbR', // TODO: Remove default in production and use --dart-define
-  );
-
   await Supabase.initialize(
-    url: supabaseUrl,
-    anonKey: supabaseAnonKey,
+    url: AppConfig.supabaseUrl,
+    anonKey: AppConfig.supabaseAnonKey,
   );
 
   await NotificationService().init();
+  await MobileAds.instance.initialize();
+  
+  // Register physical device for test ads
+  RequestConfiguration configuration = RequestConfiguration(
+    testDeviceIds: ["A7BFCCEB220734BC2E00BDEE984BDC81"],
+  );
+  MobileAds.instance.updateRequestConfiguration(configuration);
 
   runApp(const ProviderScope(child: KYWMobileApp()));
 }
@@ -37,6 +38,7 @@ class KYWMobileApp extends ConsumerWidget {
     // Use system theme as fallback while persisted preference loads
     final themeModeAsync = ref.watch(themeModeProvider);
     final themeMode = themeModeAsync.value ?? ThemeMode.system;
+    ref.watch(adServiceProvider); // Initialize ad service early
 
     return MaterialApp.router(
       title: 'KYW',

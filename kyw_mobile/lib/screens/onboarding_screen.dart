@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:lucide_icons/lucide_icons.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../core/providers.dart';
 import '../theme/app_theme.dart';
 import '../widgets/calendar_picker.dart';
+import '../services/ad_service.dart';
 
 
 class OnboardingScreen extends ConsumerStatefulWidget {
@@ -45,6 +46,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     } else {
       await prefs.setBool('kyw_has_seen_onboarding', true);
     }
+
+    ref.read(adServiceProvider).showInterstitialAd();
+
     if (!mounted) return;
     context.go('/');
   }
@@ -133,7 +137,6 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     onPressed: _nextPage,
                     style: ElevatedButton.styleFrom(
                       minimumSize: const Size(double.infinity, 56),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                     ),
                     child: Text(_currentPage == 2 ? 'Finish & Start Tracking' : 'Continue'),
                   ),

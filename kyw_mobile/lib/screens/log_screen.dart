@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:lucide_icons/lucide_icons.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import '../core/providers.dart';
 import '../core/cycle_engine.dart'; // added for Cycle
@@ -9,6 +9,7 @@ import '../theme/app_theme.dart';
 import 'package:go_router/go_router.dart';
 import '../widgets/calendar_picker.dart';
 import '../services/notification_service.dart';
+import '../services/ad_service.dart';
 
 class LogScreen extends ConsumerStatefulWidget {
   const LogScreen({super.key});
@@ -131,6 +132,8 @@ class _LogScreenState extends ConsumerState<LogScreen> {
         final profile = ref.read(userProfileProvider).value;
         await NotificationService().scheduleNext30Days(mappedCycles, defaultLength: profile?.defaultCycleLength ?? 28);
       }
+
+      ref.read(adServiceProvider).showInterstitialAd();
 
       if (mounted) {
         if (context.canPop()) {

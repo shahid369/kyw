@@ -56,20 +56,20 @@
     {
       "label": "MainActivity.kt",
       "file_type": "code",
-      "source_file": "android/app/src/main/kotlin/com/kyw/kyw_mobile/MainActivity.kt",
+      "source_file": "android/app/src/main/kotlin/com/knowyourwomen/kyw/MainActivity.kt",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "kyw_mobile_mainactivity",
+      "id": "kyw_mainactivity",
       "community": 33,
       "norm_label": "mainactivity.kt"
     },
     {
       "label": "MainActivity",
       "file_type": "code",
-      "source_file": "android/app/src/main/kotlin/com/kyw/kyw_mobile/MainActivity.kt",
+      "source_file": "android/app/src/main/kotlin/com/knowyourwomen/kyw/MainActivity.kt",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "kyw_mobile_mainactivity_mainactivity",
+      "id": "kyw_mainactivity_mainactivity",
       "community": 33,
       "norm_label": "mainactivity"
     },
@@ -385,7 +385,7 @@
       "label": "GeneratedPluginRegistrant",
       "file_type": "code",
       "source_file": "ios/Runner/GeneratedPluginRegistrant.m",
-      "source_location": "L51",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "runner_generatedpluginregistrant_generatedpluginregistrant",
       "community": 7,
@@ -395,7 +395,7 @@
       "label": "-registerWithRegistry",
       "file_type": "code",
       "source_file": "ios/Runner/GeneratedPluginRegistrant.m",
-      "source_location": "L53",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "runner_generatedpluginregistrant_generatedpluginregistrant_registerwithregistry",
       "community": 7,
@@ -410,6 +410,76 @@
       "id": "runner_runner_bridging_header",
       "community": 45,
       "norm_label": "runner-bridging-header.h"
+    },
+    {
+      "label": "config.dart",
+      "file_type": "code",
+      "source_file": "lib/core/config.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "core_config",
+      "community": 7,
+      "norm_label": "config.dart"
+    },
+    {
+      "label": "AppConfig",
+      "file_type": "code",
+      "source_file": "lib/core/config.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "core_config_appconfig",
+      "community": 7,
+      "norm_label": "appconfig"
+    },
+    {
+      "label": "supabaseUrl",
+      "file_type": "code",
+      "source_file": "lib/core/config.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "core_config_supabaseurl",
+      "community": 7,
+      "norm_label": "supabaseurl"
+    },
+    {
+      "label": "static const String",
+      "file_type": "code",
+      "source_file": null,
+      "source_location": null,
+      "_origin": "ast",
+      "id": "static_const_string",
+      "community": 7,
+      "norm_label": "static const string"
+    },
+    {
+      "label": "supabaseAnonKey",
+      "file_type": "code",
+      "source_file": "lib/core/config.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "core_config_supabaseanonkey",
+      "community": 7,
+      "norm_label": "supabaseanonkey"
+    },
+    {
+      "label": "googleWebClientId",
+      "file_type": "code",
+      "source_file": "lib/core/config.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "core_config_googlewebclientid",
+      "community": 7,
+      "norm_label": "googlewebclientid"
+    },
+    {
+      "label": "googleIosClientId",
+      "file_type": "code",
+      "source_file": "lib/core/config.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "core_config_googleiosclientid",
+      "community": 7,
+      "norm_label": "googleiosclientid"
     },
     {
       "label": "cycle_engine.dart",
@@ -428,7 +498,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_cycle_engine_cyclephase",
-      "community": 31,
+      "community": 15,
       "norm_label": "cyclephase"
     },
     {
@@ -858,7 +928,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers",
-      "community": 11,
+      "community": 3,
       "norm_label": "providers.dart"
     },
     {
@@ -868,7 +938,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_userprofile",
-      "community": 11,
+      "community": 3,
       "norm_label": "userprofile"
     },
     {
@@ -878,7 +948,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_signuploading",
-      "community": 3,
+      "community": 31,
       "norm_label": "signuploading"
     },
     {
@@ -898,7 +968,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_authstateprovider",
-      "community": 11,
+      "community": 3,
       "norm_label": "authstateprovider"
     },
     {
@@ -918,7 +988,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_authstate",
-      "community": 11,
+      "community": 3,
       "norm_label": "authstate"
     },
     {
@@ -928,7 +998,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_id",
-      "community": 11,
+      "community": 3,
       "norm_label": "id"
     },
     {
@@ -938,7 +1008,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_name",
-      "community": 11,
+      "community": 3,
       "norm_label": "name"
     },
     {
@@ -948,7 +1018,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_partnername",
-      "community": 11,
+      "community": 3,
       "norm_label": "partnername"
     },
     {
@@ -958,7 +1028,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_defaultcyclelength",
-      "community": 11,
+      "community": 3,
       "norm_label": "defaultcyclelength"
     },
     {
@@ -968,7 +1038,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_userprofileprovider",
-      "community": 11,
+      "community": 52,
       "norm_label": "userprofileprovider"
     },
     {
@@ -978,7 +1048,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_user",
-      "community": 11,
+      "community": 3,
       "norm_label": "user"
     },
     {
@@ -988,7 +1058,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_client",
-      "community": 11,
+      "community": 3,
       "norm_label": "client"
     },
     {
@@ -998,7 +1068,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_response",
-      "community": 11,
+      "community": 3,
       "norm_label": "response"
     },
     {
@@ -1008,7 +1078,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_null",
-      "community": 11,
+      "community": 3,
       "norm_label": "null"
     },
     {
@@ -1018,7 +1088,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "return",
-      "community": 11,
+      "community": 3,
       "norm_label": "return"
     },
     {
@@ -1028,7 +1098,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_cyclesprovider",
-      "community": 11,
+      "community": 52,
       "norm_label": "cyclesprovider"
     },
     {
@@ -1038,7 +1108,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_signuploadingprovider",
-      "community": 28,
+      "community": 3,
       "norm_label": "signuploadingprovider"
     },
     {
@@ -1048,7 +1118,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_watch",
-      "community": 11,
+      "community": 3,
       "norm_label": "watch"
     },
     {
@@ -1058,7 +1128,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_frommap",
-      "community": 11,
+      "community": 3,
       "norm_label": "frommap"
     },
     {
@@ -1068,7 +1138,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_providers_build",
-      "community": 11,
+      "community": 3,
       "norm_label": "build"
     },
     {
@@ -1088,7 +1158,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "package_supabase_flutter_supabase_flutter_dart",
-      "community": 3,
+      "community": 12,
       "norm_label": "package:supabase_flutter/supabase_flutter.dart"
     },
     {
@@ -1098,7 +1168,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "supabaseclient",
-      "community": 11,
+      "community": 3,
       "norm_label": "supabaseclient"
     },
     {
@@ -1108,7 +1178,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_router",
-      "community": 3,
+      "community": 31,
       "norm_label": "router.dart"
     },
     {
@@ -1118,7 +1188,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_router_authnotifier",
-      "community": 3,
+      "community": 31,
       "norm_label": "_authnotifier"
     },
     {
@@ -1128,7 +1198,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "changenotifier",
-      "community": 3,
+      "community": 31,
       "norm_label": "changenotifier"
     },
     {
@@ -1138,7 +1208,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_router_sub",
-      "community": 3,
+      "community": 31,
       "norm_label": "_sub"
     },
     {
@@ -1148,7 +1218,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_router_routerprovider",
-      "community": 3,
+      "community": 55,
       "norm_label": "routerprovider"
     },
     {
@@ -1158,7 +1228,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_router_notifier",
-      "community": 3,
+      "community": 31,
       "norm_label": "notifier"
     },
     {
@@ -1168,7 +1238,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_router_dispose",
-      "community": 3,
+      "community": 31,
       "norm_label": "dispose"
     },
     {
@@ -1188,7 +1258,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "package_go_router_go_router_dart",
-      "community": 12,
+      "community": 24,
       "norm_label": "package:go_router/go_router.dart"
     },
     {
@@ -1198,7 +1268,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_dashboard_screen_dart",
-      "community": 3,
+      "community": 31,
       "norm_label": "../screens/dashboard_screen.dart"
     },
     {
@@ -1208,7 +1278,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_login_screen_dart",
-      "community": 3,
+      "community": 31,
       "norm_label": "../screens/login_screen.dart"
     },
     {
@@ -1218,7 +1288,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_signup_screen_dart",
-      "community": 3,
+      "community": 31,
       "norm_label": "../screens/signup_screen.dart"
     },
     {
@@ -1228,7 +1298,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_history_screen_dart",
-      "community": 3,
+      "community": 31,
       "norm_label": "../screens/history_screen.dart"
     },
     {
@@ -1238,7 +1308,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_log_screen_dart",
-      "community": 3,
+      "community": 31,
       "norm_label": "../screens/log_screen.dart"
     },
     {
@@ -1248,7 +1318,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_guide_screen_dart",
-      "community": 3,
+      "community": 31,
       "norm_label": "../screens/guide_screen.dart"
     },
     {
@@ -1258,7 +1328,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_settings_screen_dart",
-      "community": 3,
+      "community": 31,
       "norm_label": "../screens/settings_screen.dart"
     },
     {
@@ -1268,7 +1338,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_main_shell_dart",
-      "community": 3,
+      "community": 31,
       "norm_label": "../screens/main_shell.dart"
     },
     {
@@ -1278,7 +1348,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_onboarding_screen_dart",
-      "community": 3,
+      "community": 31,
       "norm_label": "../screens/onboarding_screen.dart"
     },
     {
@@ -1288,7 +1358,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "providers_dart",
-      "community": 3,
+      "community": 31,
       "norm_label": "providers.dart"
     },
     {
@@ -1298,7 +1368,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "gorouter",
-      "community": 3,
+      "community": 31,
       "norm_label": "gorouter"
     },
     {
@@ -1358,7 +1428,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_theme_provider_thememodeprovider",
-      "community": 11,
+      "community": 55,
       "norm_label": "thememodeprovider"
     },
     {
@@ -1398,7 +1468,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "lib_main",
-      "community": 3,
+      "community": 12,
       "norm_label": "main.dart"
     },
     {
@@ -1408,7 +1478,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "lib_main_kywmobileapp",
-      "community": 3,
+      "community": 55,
       "norm_label": "kywmobileapp"
     },
     {
@@ -1418,28 +1488,8 @@
       "source_location": null,
       "_origin": "ast",
       "id": "consumerwidget",
-      "community": 3,
+      "community": 55,
       "norm_label": "consumerwidget"
-    },
-    {
-      "label": "supabaseUrl",
-      "file_type": "code",
-      "source_file": "lib/main.dart",
-      "source_location": null,
-      "_origin": "ast",
-      "id": "lib_main_supabaseurl",
-      "community": 3,
-      "norm_label": "supabaseurl"
-    },
-    {
-      "label": "supabaseAnonKey",
-      "file_type": "code",
-      "source_file": "lib/main.dart",
-      "source_location": null,
-      "_origin": "ast",
-      "id": "lib_main_supabaseanonkey",
-      "community": 3,
-      "norm_label": "supabaseanonkey"
     },
     {
       "label": "main",
@@ -1448,7 +1498,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "lib_main_main",
-      "community": 3,
+      "community": 12,
       "norm_label": "main"
     },
     {
@@ -1458,7 +1508,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "lib_main_initialize",
-      "community": 3,
+      "community": 12,
       "norm_label": "initialize"
     },
     {
@@ -1468,7 +1518,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "lib_main_build",
-      "community": 3,
+      "community": 55,
       "norm_label": "build"
     },
     {
@@ -1488,7 +1538,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_router_dart",
-      "community": 3,
+      "community": 12,
       "norm_label": "core/router.dart"
     },
     {
@@ -1498,8 +1548,18 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_theme_provider_dart",
-      "community": 3,
+      "community": 12,
       "norm_label": "../core/theme_provider.dart"
+    },
+    {
+      "label": "../core/config.dart",
+      "file_type": "code",
+      "source_file": null,
+      "source_location": null,
+      "_origin": "ast",
+      "id": "core_config_dart",
+      "community": 12,
+      "norm_label": "../core/config.dart"
     },
     {
       "label": "../services/notification_service.dart",
@@ -1508,7 +1568,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "services_notification_service_dart",
-      "community": 3,
+      "community": 12,
       "norm_label": "../services/notification_service.dart"
     },
     {
@@ -1528,7 +1588,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_dashboard_screen_dashboardscreen",
-      "community": 11,
+      "community": 54,
       "norm_label": "dashboardscreen"
     },
     {
@@ -1538,7 +1598,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "consumerstatefulwidget",
-      "community": 11,
+      "community": 54,
       "norm_label": "consumerstatefulwidget"
     },
     {
@@ -1548,7 +1608,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_dashboard_screen_dashboardscreenstate",
-      "community": 11,
+      "community": 52,
       "norm_label": "_dashboardscreenstate"
     },
     {
@@ -1558,7 +1618,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "consumerstate",
-      "community": 11,
+      "community": 54,
       "norm_label": "consumerstate"
     },
     {
@@ -1708,7 +1768,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_dashboard_screen_promptnotifications",
-      "community": 11,
+      "community": 52,
       "norm_label": "_promptnotifications"
     },
     {
@@ -1778,7 +1838,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_dashboard_screen_build",
-      "community": 11,
+      "community": 52,
       "norm_label": "build"
     },
     {
@@ -1788,7 +1848,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "route_guide",
-      "community": 11,
+      "community": 52,
       "norm_label": "route /guide"
     },
     {
@@ -1798,7 +1858,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "route_log",
-      "community": 11,
+      "community": 52,
       "norm_label": "route /log"
     },
     {
@@ -1808,7 +1868,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "route_history",
-      "community": 11,
+      "community": 52,
       "norm_label": "route /history"
     },
     {
@@ -1818,7 +1878,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "package_flutter_animate_flutter_animate_dart",
-      "community": 31,
+      "community": 15,
       "norm_label": "package:flutter_animate/flutter_animate.dart"
     },
     {
@@ -1858,7 +1918,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "core_cycle_engine_dart",
-      "community": 31,
+      "community": 15,
       "norm_label": "../core/cycle_engine.dart"
     },
     {
@@ -1892,6 +1952,16 @@
       "norm_label": "../widgets/kyw_logo.dart"
     },
     {
+      "label": "profile_setup_screen.dart",
+      "file_type": "code",
+      "source_file": null,
+      "source_location": null,
+      "_origin": "ast",
+      "id": "profile_setup_screen_dart",
+      "community": 8,
+      "norm_label": "profile_setup_screen.dart"
+    },
+    {
       "label": "package:tutorial_coach_mark/tutorial_coach_mark.dart",
       "file_type": "code",
       "source_file": null,
@@ -1918,7 +1988,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_guide_screen_guidescreen",
-      "community": 3,
+      "community": 52,
       "norm_label": "guidescreen"
     },
     {
@@ -1928,7 +1998,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_guide_screen_dosdontscard",
-      "community": 2,
+      "community": 37,
       "norm_label": "_dosdontscard"
     },
     {
@@ -1958,7 +2028,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_guide_screen_build",
-      "community": 11,
+      "community": 52,
       "norm_label": "build"
     },
     {
@@ -2028,7 +2098,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_history_screen_build",
-      "community": 11,
+      "community": 52,
       "norm_label": "build"
     },
     {
@@ -2048,7 +2118,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_log_screen_logscreen",
-      "community": 11,
+      "community": 54,
       "norm_label": "logscreen"
     },
     {
@@ -2058,7 +2128,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_log_screen_logscreenstate",
-      "community": 11,
+      "community": 54,
       "norm_label": "_logscreenstate"
     },
     {
@@ -2208,7 +2278,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_login_screen_loginscreen",
-      "community": 11,
+      "community": 54,
       "norm_label": "loginscreen"
     },
     {
@@ -2218,7 +2288,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_login_screen_loginscreenstate",
-      "community": 11,
+      "community": 54,
       "norm_label": "_loginscreenstate"
     },
     {
@@ -2282,6 +2352,16 @@
       "norm_label": "_signin"
     },
     {
+      "label": "_signInWithGoogle",
+      "file_type": "code",
+      "source_file": "lib/screens/login_screen.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "screens_login_screen_signinwithgoogle",
+      "community": 12,
+      "norm_label": "_signinwithgoogle"
+    },
+    {
       "label": "dispose",
       "file_type": "code",
       "source_file": "lib/screens/login_screen.dart",
@@ -2312,13 +2392,23 @@
       "norm_label": "route /signup"
     },
     {
+      "label": "package:google_sign_in/google_sign_in.dart",
+      "file_type": "code",
+      "source_file": null,
+      "source_location": null,
+      "_origin": "ast",
+      "id": "package_google_sign_in_google_sign_in_dart",
+      "community": 12,
+      "norm_label": "package:google_sign_in/google_sign_in.dart"
+    },
+    {
       "label": "FormState",
       "file_type": "code",
       "source_file": null,
       "source_location": null,
       "_origin": "ast",
       "id": "formstate",
-      "community": 12,
+      "community": 53,
       "norm_label": "formstate"
     },
     {
@@ -2438,7 +2528,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_onboarding_screen_onboardingscreen",
-      "community": 11,
+      "community": 54,
       "norm_label": "onboardingscreen"
     },
     {
@@ -2448,7 +2538,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_onboarding_screen_onboardingscreenstate",
-      "community": 11,
+      "community": 54,
       "norm_label": "_onboardingscreenstate"
     },
     {
@@ -2592,6 +2682,126 @@
       "norm_label": "_builddatepage"
     },
     {
+      "label": "profile_setup_screen.dart",
+      "file_type": "code",
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "screens_profile_setup_screen",
+      "community": 53,
+      "norm_label": "profile_setup_screen.dart"
+    },
+    {
+      "label": "ProfileSetupScreen",
+      "file_type": "code",
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "screens_profile_setup_screen_profilesetupscreen",
+      "community": 54,
+      "norm_label": "profilesetupscreen"
+    },
+    {
+      "label": "_ProfileSetupScreenState",
+      "file_type": "code",
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "screens_profile_setup_screen_profilesetupscreenstate",
+      "community": 54,
+      "norm_label": "_profilesetupscreenstate"
+    },
+    {
+      "label": "_formKey",
+      "file_type": "code",
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "screens_profile_setup_screen_formkey",
+      "community": 53,
+      "norm_label": "_formkey"
+    },
+    {
+      "label": "_nameController",
+      "file_type": "code",
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "screens_profile_setup_screen_namecontroller",
+      "community": 53,
+      "norm_label": "_namecontroller"
+    },
+    {
+      "label": "_partnerNameController",
+      "file_type": "code",
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "screens_profile_setup_screen_partnernamecontroller",
+      "community": 53,
+      "norm_label": "_partnernamecontroller"
+    },
+    {
+      "label": "_isLoading",
+      "file_type": "code",
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "screens_profile_setup_screen_isloading",
+      "community": 53,
+      "norm_label": "_isloading"
+    },
+    {
+      "label": "createState",
+      "file_type": "code",
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "screens_profile_setup_screen_createstate",
+      "community": 53,
+      "norm_label": "createstate"
+    },
+    {
+      "label": "initState",
+      "file_type": "code",
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "screens_profile_setup_screen_initstate",
+      "community": 11,
+      "norm_label": "initstate"
+    },
+    {
+      "label": "_submitProfile",
+      "file_type": "code",
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "screens_profile_setup_screen_submitprofile",
+      "community": 11,
+      "norm_label": "_submitprofile"
+    },
+    {
+      "label": "dispose",
+      "file_type": "code",
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "screens_profile_setup_screen_dispose",
+      "community": 53,
+      "norm_label": "dispose"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "screens_profile_setup_screen_build",
+      "community": 53,
+      "norm_label": "build"
+    },
+    {
       "label": "settings_screen.dart",
       "file_type": "code",
       "source_file": "lib/screens/settings_screen.dart",
@@ -2608,7 +2818,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_settings_screen_settingsscreen",
-      "community": 11,
+      "community": 54,
       "norm_label": "settingsscreen"
     },
     {
@@ -2618,7 +2828,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_settings_screen_settingsscreenstate",
-      "community": 11,
+      "community": 52,
       "norm_label": "_settingsscreenstate"
     },
     {
@@ -2958,7 +3168,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_settings_screen_togglereminders",
-      "community": 11,
+      "community": 52,
       "norm_label": "_togglereminders"
     },
     {
@@ -2978,7 +3188,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_settings_screen_populateprofile",
-      "community": 11,
+      "community": 52,
       "norm_label": "_populateprofile"
     },
     {
@@ -3018,7 +3228,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_settings_screen_build",
-      "community": 11,
+      "community": 55,
       "norm_label": "build"
     },
     {
@@ -3038,7 +3248,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_signup_screen_signupscreen",
-      "community": 28,
+      "community": 54,
       "norm_label": "signupscreen"
     },
     {
@@ -3048,7 +3258,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_signup_screen_signupscreenstate",
-      "community": 28,
+      "community": 54,
       "norm_label": "_signupscreenstate"
     },
     {
@@ -3158,8 +3368,18 @@
       "source_location": null,
       "_origin": "ast",
       "id": "screens_signup_screen_signup",
-      "community": 28,
+      "community": 3,
       "norm_label": "_signup"
+    },
+    {
+      "label": "_signInWithGoogle",
+      "file_type": "code",
+      "source_file": "lib/screens/signup_screen.dart",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "screens_signup_screen_signinwithgoogle",
+      "community": 11,
+      "norm_label": "_signinwithgoogle"
     },
     {
       "label": "dispose",
@@ -3280,16 +3500,6 @@
       "id": "services_notification_service_prefdailyreminderskey",
       "community": 7,
       "norm_label": "_prefdailyreminderskey"
-    },
-    {
-      "label": "static const String",
-      "file_type": "code",
-      "source_file": null,
-      "source_location": null,
-      "_origin": "ast",
-      "id": "static_const_string",
-      "community": 7,
-      "norm_label": "static const string"
     },
     {
       "label": "init",
@@ -3918,7 +4128,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "widgets_phase_badge",
-      "community": 31,
+      "community": 15,
       "norm_label": "phase_badge.dart"
     },
     {
@@ -3938,7 +4148,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "widgets_phase_badge_phase",
-      "community": 31,
+      "community": 15,
       "norm_label": "phase"
     },
     {
@@ -3948,7 +4158,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "widgets_phase_badge_animate",
-      "community": 31,
+      "community": 15,
       "norm_label": "animate"
     },
     {
@@ -3958,7 +4168,7 @@
       "source_location": null,
       "_origin": "ast",
       "id": "widgets_phase_badge_build",
-      "community": 31,
+      "community": 15,
       "norm_label": "build"
     },
     {
@@ -4522,10 +4732,20 @@
       "norm_label": "flutter_timezone"
     },
     {
-      "label": "path_provider_foundation",
+      "label": "google_sign_in_ios",
       "file_type": "code",
       "source_file": "macos/Flutter/GeneratedPluginRegistrant.swift",
       "source_location": "L11",
+      "_origin": "ast",
+      "id": "google_sign_in_ios",
+      "community": 10,
+      "norm_label": "google_sign_in_ios"
+    },
+    {
+      "label": "path_provider_foundation",
+      "file_type": "code",
+      "source_file": "macos/Flutter/GeneratedPluginRegistrant.swift",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "path_provider_foundation",
       "community": 10,
@@ -4535,7 +4755,7 @@
       "label": "shared_preferences_foundation",
       "file_type": "code",
       "source_file": "macos/Flutter/GeneratedPluginRegistrant.swift",
-      "source_location": "L12",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "shared_preferences_foundation",
       "community": 10,
@@ -4545,7 +4765,7 @@
       "label": "url_launcher_macos",
       "file_type": "code",
       "source_file": "macos/Flutter/GeneratedPluginRegistrant.swift",
-      "source_location": "L13",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "url_launcher_macos",
       "community": 10,
@@ -4555,7 +4775,7 @@
       "label": "RegisterGeneratedPlugins()",
       "file_type": "code",
       "source_file": "macos/Flutter/GeneratedPluginRegistrant.swift",
-      "source_location": "L15",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "flutter_generatedpluginregistrant_registergeneratedplugins",
       "community": 10,
@@ -4565,7 +4785,7 @@
       "label": "FlutterPluginRegistry",
       "file_type": "code",
       "source_file": "macos/Flutter/GeneratedPluginRegistrant.swift",
-      "source_location": "L15",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "flutterpluginregistry",
       "community": 10,
@@ -7356,21 +7576,21 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "android/app/src/main/kotlin/com/kyw/kyw_mobile/MainActivity.kt",
+      "source_file": "android/app/src/main/kotlin/com/knowyourwomen/kyw/MainActivity.kt",
       "source_location": "L5",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "kyw_mobile_mainactivity",
-      "target": "kyw_mobile_mainactivity_mainactivity"
+      "source": "kyw_mainactivity",
+      "target": "kyw_mainactivity_mainactivity"
     },
     {
       "relation": "inherits",
       "confidence": "EXTRACTED",
-      "source_file": "android/app/src/main/kotlin/com/kyw/kyw_mobile/MainActivity.kt",
+      "source_file": "android/app/src/main/kotlin/com/knowyourwomen/kyw/MainActivity.kt",
       "source_location": "L5",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "kyw_mobile_mainactivity_mainactivity",
+      "source": "kyw_mainactivity_mainactivity",
       "target": "flutteractivity"
     },
     {
@@ -7633,6 +7853,78 @@
       "confidence_score": 1.0,
       "source": "runner_generatedpluginregistrant_generatedpluginregistrant",
       "target": "runner_generatedpluginregistrant_generatedpluginregistrant_registerwithregistry"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/core/config.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "core_config",
+      "target": "core_config_appconfig"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/core/config.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "core_config",
+      "target": "core_config_googleiosclientid"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/core/config.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "core_config",
+      "target": "core_config_googlewebclientid"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/core/config.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "core_config",
+      "target": "core_config_supabaseanonkey"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/core/config.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "core_config",
+      "target": "core_config_supabaseurl"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/core/config.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "context": "variable_type",
+      "source": "core_config",
+      "target": "static_const_string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/services/notification_service.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "context": "variable_type",
+      "source": "services_notification_service",
+      "target": "static_const_string"
     },
     {
       "relation": "defines",
@@ -8542,6 +8834,17 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "lib/screens/login_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "context": "riverpod_reference",
+      "source": "screens_login_screen_signinwithgoogle",
+      "target": "core_providers_supabaseclientprovider"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "lib/screens/onboarding_screen.dart",
       "source_location": null,
       "weight": 1.0,
@@ -8558,6 +8861,28 @@
       "weight": 1.0,
       "context": "riverpod_reference",
       "source": "screens_onboarding_screen_onboardingscreenstate",
+      "target": "core_providers_supabaseclientprovider"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "context": "riverpod_reference",
+      "source": "screens_profile_setup_screen_profilesetupscreenstate",
+      "target": "core_providers_supabaseclientprovider"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "context": "riverpod_reference",
+      "source": "screens_profile_setup_screen_submitprofile",
       "target": "core_providers_supabaseclientprovider"
     },
     {
@@ -8602,6 +8927,17 @@
       "weight": 1.0,
       "context": "riverpod_reference",
       "source": "screens_settings_screen_settingsscreenstate",
+      "target": "core_providers_supabaseclientprovider"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/signup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "context": "riverpod_reference",
+      "source": "screens_signup_screen_signinwithgoogle",
       "target": "core_providers_supabaseclientprovider"
     },
     {
@@ -8723,6 +9059,39 @@
       "weight": 1.0,
       "context": "riverpod_reference",
       "source": "screens_onboarding_screen_skiponboarding",
+      "target": "core_providers_currentuserprovider"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "context": "riverpod_reference",
+      "source": "screens_profile_setup_screen_initstate",
+      "target": "core_providers_currentuserprovider"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "context": "riverpod_reference",
+      "source": "screens_profile_setup_screen_profilesetupscreenstate",
+      "target": "core_providers_currentuserprovider"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "context": "riverpod_reference",
+      "source": "screens_profile_setup_screen_submitprofile",
       "target": "core_providers_currentuserprovider"
     },
     {
@@ -9116,6 +9485,16 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
+      "target": "package_flutter_riverpod_flutter_riverpod_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "lib/screens/settings_screen.dart",
       "source_location": null,
       "weight": 1.0,
@@ -9479,6 +9858,16 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
+      "target": "package_flutter_material_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "lib/screens/settings_screen.dart",
       "source_location": null,
       "weight": 1.0,
@@ -9753,6 +10142,16 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
+      "target": "package_shared_preferences_shared_preferences_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "lib/screens/signup_screen.dart",
       "source_location": null,
       "weight": 1.0,
@@ -9768,6 +10167,16 @@
       "weight": 1.0,
       "source": "services_notification_service",
       "target": "package_shared_preferences_shared_preferences_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/main.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "lib_main",
+      "target": "core_config_dart"
     },
     {
       "relation": "imports",
@@ -9828,26 +10237,6 @@
       "weight": 1.0,
       "source": "lib_main",
       "target": "lib_main_main"
-    },
-    {
-      "relation": "defines",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "lib/main.dart",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "lib_main",
-      "target": "lib_main_supabaseanonkey"
-    },
-    {
-      "relation": "defines",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "lib/main.dart",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "lib_main",
-      "target": "lib_main_supabaseurl"
     },
     {
       "relation": "imports",
@@ -9963,6 +10352,16 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
+      "target": "theme_app_theme_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "lib/screens/settings_screen.dart",
       "source_location": null,
       "weight": 1.0,
@@ -10018,6 +10417,26 @@
       "weight": 1.0,
       "source": "screens_settings_screen",
       "target": "core_theme_provider_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/login_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_login_screen",
+      "target": "core_config_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/signup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_signup_screen",
+      "target": "core_config_dart"
     },
     {
       "relation": "imports",
@@ -10130,6 +10549,16 @@
       "weight": 1.0,
       "source": "screens_dashboard_screen",
       "target": "package_tutorial_coach_mark_tutorial_coach_mark_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/dashboard_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_dashboard_screen",
+      "target": "profile_setup_screen_dart"
     },
     {
       "relation": "defines",
@@ -10426,6 +10855,16 @@
       "relation": "inherits",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen_profilesetupscreen",
+      "target": "consumerstatefulwidget"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "lib/screens/settings_screen.dart",
       "source_location": null,
       "weight": 1.0,
@@ -10490,6 +10929,16 @@
       "source_location": null,
       "weight": 1.0,
       "source": "screens_onboarding_screen_onboardingscreenstate",
+      "target": "consumerstate"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen_profilesetupscreenstate",
       "target": "consumerstate"
     },
     {
@@ -10765,6 +11214,16 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
+      "target": "package_flutter_animate_flutter_animate_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "lib/screens/settings_screen.dart",
       "source_location": null,
       "weight": 1.0,
@@ -10929,6 +11388,16 @@
       "source_location": null,
       "weight": 1.0,
       "source": "screens_onboarding_screen",
+      "target": "core_providers_dart"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
       "target": "core_providers_dart"
     },
     {
@@ -11357,6 +11826,16 @@
       "target": "formstate"
     },
     {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/login_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_login_screen",
+      "target": "package_google_sign_in_google_sign_in_dart"
+    },
+    {
       "relation": "defines",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -11457,6 +11936,16 @@
       "target": "screens_login_screen_signin"
     },
     {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/login_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_login_screen",
+      "target": "screens_login_screen_signinwithgoogle"
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -11476,6 +11965,27 @@
       "context": "route_path",
       "source": "screens_login_screen_build",
       "target": "route_signup"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/signup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_signup_screen",
+      "target": "package_google_sign_in_google_sign_in_dart"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "context": "type_lookup",
+      "source": "screens_profile_setup_screen",
+      "target": "formstate"
     },
     {
       "relation": "references",
@@ -11750,6 +12260,126 @@
       "weight": 1.0,
       "source": "screens_onboarding_screen_onboardingscreenstate",
       "target": "screens_onboarding_screen_onboardingscreen"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
+      "target": "screens_profile_setup_screen_build"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
+      "target": "screens_profile_setup_screen_createstate"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
+      "target": "screens_profile_setup_screen_dispose"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
+      "target": "screens_profile_setup_screen_formkey"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
+      "target": "screens_profile_setup_screen_initstate"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
+      "target": "screens_profile_setup_screen_isloading"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
+      "target": "screens_profile_setup_screen_namecontroller"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
+      "target": "screens_profile_setup_screen_partnernamecontroller"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
+      "target": "screens_profile_setup_screen_profilesetupscreen"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
+      "target": "screens_profile_setup_screen_profilesetupscreenstate"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen",
+      "target": "screens_profile_setup_screen_submitprofile"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/profile_setup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_profile_setup_screen_profilesetupscreenstate",
+      "target": "screens_profile_setup_screen_profilesetupscreen"
     },
     {
       "relation": "defines",
@@ -12321,6 +12951,16 @@
       "source_location": null,
       "weight": 1.0,
       "source": "screens_signup_screen",
+      "target": "screens_signup_screen_signinwithgoogle"
+    },
+    {
+      "relation": "defines",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/screens/signup_screen.dart",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "screens_signup_screen",
       "target": "screens_signup_screen_signup"
     },
     {
@@ -12535,17 +13175,6 @@
       "weight": 1.0,
       "source": "services_notification_service",
       "target": "services_notification_service_setenabled"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "lib/services/notification_service.dart",
-      "source_location": null,
-      "weight": 1.0,
-      "context": "variable_type",
-      "source": "services_notification_service",
-      "target": "static_const_string"
     },
     {
       "relation": "references",
@@ -13744,6 +14373,17 @@
       "confidence_score": 1.0,
       "source": "flutter_generatedpluginregistrant",
       "target": "foundation"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "macos/Flutter/GeneratedPluginRegistrant.swift",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "flutter_generatedpluginregistrant",
+      "target": "google_sign_in_ios"
     },
     {
       "relation": "imports",
@@ -16793,5 +17433,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "36aa0b6e9e53aa960267346a5b8d51ff9a56aa2f"
+  "built_at_commit": "07fb5f749e83f062911d887385e3e94ca805c2a5"
 }

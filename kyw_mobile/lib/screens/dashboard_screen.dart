@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:intl/intl.dart';
-import 'package:lucide_icons/lucide_icons.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../core/providers.dart';
@@ -10,6 +10,7 @@ import '../theme/app_theme.dart';
 import '../widgets/phase_badge.dart';
 import '../widgets/phase_ring.dart';
 import '../widgets/kyw_logo.dart';
+import 'profile_setup_screen.dart';
 
 import '../services/notification_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -296,12 +297,16 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final profileAsync = ref.watch(userProfileProvider);
+    if (profileAsync is AsyncData && profileAsync.value == null) {
+      return const ProfileSetupScreen();
+    }
+
     final cyclesAsync = ref.watch(cyclesProvider);
-    if (cyclesAsync is AsyncData) {
+    if (cyclesAsync is AsyncData && profileAsync is AsyncData && profileAsync.value != null) {
       _checkOnboarding(cyclesAsync.value ?? []);
     }
 
-    final profileAsync = ref.watch(userProfileProvider);
     final cycles = cyclesAsync.value ?? [];
     final profile = profileAsync.value;
     final isProfileLoading = profileAsync.isLoading;
