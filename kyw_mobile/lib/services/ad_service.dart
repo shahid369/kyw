@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../core/providers.dart';
 
 class AdHelper {
   static String get bannerAdUnitId {
@@ -40,17 +41,22 @@ class AdHelper {
 }
 
 final adServiceProvider = Provider<AdService>((ref) {
-  final service = AdService();
+  final service = AdService(ref);
   service.createInterstitialAd(); // Preload interstitial
   return service;
 });
 
 class AdService {
+  final Ref ref;
   InterstitialAd? _interstitialAd;
   int _numInterstitialLoadAttempts = 0;
   static const int maxFailedLoadAttempts = 3;
 
+  AdService(this.ref);
+
   void createInterstitialAd() {
+    if (ref.read(isProProvider)) return; // Don't load if Pro
+
     InterstitialAd.load(
       adUnitId: AdHelper.interstitialAdUnitId,
       request: const AdRequest(),
@@ -71,6 +77,8 @@ class AdService {
   }
 
   void showInterstitialAd() {
+    if (ref.read(isProProvider)) return; // Don't show if Pro
+
     if (_interstitialAd == null) {
       debugPrint('Warning: attempt to show interstitial before loaded.');
       createInterstitialAd();

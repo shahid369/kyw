@@ -7,6 +7,8 @@ import '../core/theme_provider.dart';
 import '../theme/app_theme.dart';
 import '../widgets/kyw_logo.dart';
 import '../services/notification_service.dart';
+import '../services/revenuecat_service.dart';
+import 'package:go_router/go_router.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
@@ -250,6 +252,60 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 ],
               ),
             ).animate().fadeIn(duration: 300.ms).slideY(begin: 0.1),
+
+            // ── Pro Subscription Card ────────────────────────────────────
+            Consumer(
+              builder: (context, ref, _) {
+                final isPro = ref.watch(isProProvider);
+                return _SettingsCard(
+                  isDark: isDark,
+                  icon: LucideIcons.crown,
+                  title: 'KYW Pro',
+                  iconColor: const Color(0xFFEAB308), // Yellow-500
+                  animDelay: 40,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      if (isPro) ...[
+                        Row(
+                          children: [
+                            const Icon(LucideIcons.checkCircle2, color: Color(0xFF22C55E), size: 18),
+                            const SizedBox(width: 8),
+                            Text('Pro Member Active', style: TextStyle(color: isDark ? DarkColors.text : AppColors.text, fontWeight: FontWeight.w600)),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        Text('Thank you for supporting KYW! You have access to all features and an ad-free experience.', style: TextStyle(color: mutedColor, fontSize: 13, height: 1.4)),
+                        const SizedBox(height: 16),
+                        OutlinedButton(
+                          onPressed: () => RevenueCatService.presentCustomerCenter(),
+                          child: const Text('Manage Subscription'),
+                        ),
+                      ] else ...[
+                        Text('Unlock all features and remove ads for just \$1/month.', style: TextStyle(color: mutedColor, fontSize: 13, height: 1.4)),
+                        const SizedBox(height: 16),
+                        ElevatedButton.icon(
+                          onPressed: () => context.push('/paywall'),
+                          icon: const Icon(LucideIcons.sparkles, size: 16),
+                          label: const Text('Upgrade to Pro'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFFEAB308), // Yellow-500
+                            foregroundColor: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        TextButton(
+                          onPressed: () => RevenueCatService.restorePurchases(),
+                          child: Text('Restore Purchases', style: TextStyle(color: textSecondary, fontSize: 12)),
+                        ),
+                      ],
+                    ],
+                  ),
+                );
+              },
+            ),
+
+            const SizedBox(height: 16),
 
             // ── Profile Card ─────────────────────────────────────────────
             _SettingsCard(

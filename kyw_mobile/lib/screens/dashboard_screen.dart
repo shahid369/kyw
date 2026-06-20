@@ -195,23 +195,35 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   }
 
   void _showTour() {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     List<TargetFocus> targets = [];
     
     if (_actionKey.currentContext != null) {
       targets.add(TargetFocus(
         identify: "actionKey",
         keyTarget: _actionKey,
+        shape: ShapeLightFocus.RRect,
+        radius: 16,
         contents: [
           TargetContent(
             align: ContentAlign.bottom,
-            builder: (context, controller) => const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text("Log her period", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20)),
-                SizedBox(height: 10),
-                Text("Tap here to start or end logging a period cycle. It's that simple!", style: TextStyle(color: Colors.white)),
-              ],
+            builder: (context, controller) => Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: const Color(0xFF1A1D24).withValues(alpha: 0.95),
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
+              ),
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text("Log her period", style: TextStyle(fontFamily: 'Space Grotesk', fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20)),
+                  SizedBox(height: 8),
+                  Text("Tap here to start or end logging a period cycle. It's that simple!", style: TextStyle(fontFamily: 'DM Sans', color: Colors.white70, fontSize: 15, height: 1.4)),
+                ],
+              ),
             ),
           )
         ],
@@ -225,14 +237,22 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         contents: [
           TargetContent(
             align: ContentAlign.bottom,
-            builder: (context, controller) => const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text("Phase Ring", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20)),
-                SizedBox(height: 10),
-                Text("This ring shows you exactly where she is in her current cycle.", style: TextStyle(color: Colors.white)),
-              ],
+            builder: (context, controller) => Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: const Color(0xFF1A1D24).withValues(alpha: 0.95),
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
+              ),
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text("Phase Ring", style: TextStyle(fontFamily: 'Space Grotesk', fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20)),
+                  SizedBox(height: 8),
+                  Text("This ring shows you exactly where she is in her current cycle.", style: TextStyle(fontFamily: 'DM Sans', color: Colors.white70, fontSize: 15, height: 1.4)),
+                ],
+              ),
             ),
           )
         ],
@@ -243,17 +263,27 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
       targets.add(TargetFocus(
         identify: "guideKey",
         keyTarget: _guideKey,
+        shape: ShapeLightFocus.RRect,
+        radius: 12,
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, controller) => const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text("Today's Guide", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20)),
-                SizedBox(height: 10),
-                Text("Read personalized tips on how to support her today based on her phase.", style: TextStyle(color: Colors.white)),
-              ],
+            builder: (context, controller) => Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: const Color(0xFF1A1D24).withValues(alpha: 0.95),
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
+              ),
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text("Today's Guide", style: TextStyle(fontFamily: 'Space Grotesk', fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20)),
+                  SizedBox(height: 8),
+                  Text("Read personalized tips on how to support her today based on her phase.", style: TextStyle(fontFamily: 'DM Sans', color: Colors.white70, fontSize: 15, height: 1.4)),
+                ],
+              ),
             ),
           )
         ],
@@ -264,10 +294,26 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
 
     TutorialCoachMark(
       targets: targets,
-      colorShadow: AppColors.primary,
-      textSkip: "SKIP",
+      colorShadow: isDark ? Colors.black : const Color(0xFF12141A),
       paddingFocus: 10,
-      opacityShadow: 0.8,
+      opacityShadow: 0.85,
+      skipWidget: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+        decoration: BoxDecoration(
+          color: AppColors.primary,
+          borderRadius: BorderRadius.circular(14),
+        ),
+        child: const Text(
+          'Skip Tour',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: 'Space Grotesk',
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+            fontSize: 15,
+          ),
+        ),
+      ),
     ).show(context: context);
   }
 
@@ -325,6 +371,22 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         elevation: 0,
         title: const KywLogo(fontSize: 26),
         centerTitle: false,
+        actions: [
+          IconButton(
+            icon: const Icon(LucideIcons.helpCircle, size: 22),
+            color: AppColors.textSecondary,
+            onPressed: () {
+              if (cycles.isNotEmpty) {
+                _showTour();
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Log a cycle first to see the tour!')),
+                );
+              }
+            },
+          ),
+          const SizedBox(width: 8),
+        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -471,14 +533,14 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                   children: [
                                     ElevatedButton.icon(
                                       key: _guideKey,
-                                      onPressed: () => context.push('/guide'),
+                                      onPressed: () => context.go('/guide'),
                                       icon: const Icon(LucideIcons.book, size: 16),
                                       label: const Text('Today\'s Guide'),
                                     ),
                                     OutlinedButton.icon(
-                                      onPressed: () => context.push('/log'),
+                                      onPressed: () => context.go('/log'),
                                       icon: const Icon(LucideIcons.plus, size: 16),
-                                      label: const Text('Log Symptoms'),
+                                      label: const Text('Add Cycles'),
                                       style: OutlinedButton.styleFrom(
                                         foregroundColor: isDark ? DarkColors.text : AppColors.text,
                                         side: BorderSide(color: isDark ? DarkColors.border : AppColors.border),
@@ -520,7 +582,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 children: [
                   Text('Recent Cycles', style: Theme.of(context).textTheme.titleLarge),
                   TextButton(
-                    onPressed: () => context.push('/history'),
+                    onPressed: () => context.go('/history'),
                     child: const Text('View All', style: TextStyle(color: AppColors.textSecondary)),
                   )
                 ],

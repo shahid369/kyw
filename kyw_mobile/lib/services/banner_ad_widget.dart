@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../core/providers.dart';
 import 'ad_service.dart';
 
-class BannerAdWidget extends StatefulWidget {
+class BannerAdWidget extends ConsumerStatefulWidget {
   const BannerAdWidget({super.key});
 
   @override
-  State<BannerAdWidget> createState() => _BannerAdWidgetState();
+  ConsumerState<BannerAdWidget> createState() => _BannerAdWidgetState();
 }
 
-class _BannerAdWidgetState extends State<BannerAdWidget> {
+class _BannerAdWidgetState extends ConsumerState<BannerAdWidget> {
   BannerAd? _bannerAd;
   String? _error;
   bool _isLoading = true;
@@ -56,6 +58,11 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final isPro = ref.watch(isProProvider);
+    if (isPro) {
+      return const SizedBox.shrink(); // Hide ad if Pro
+    }
+
     if (_isLoading) {
       return Container(
         width: double.infinity,
@@ -65,12 +72,7 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
       );
     }
     if (_error != null) {
-      return Container(
-        width: double.infinity,
-        height: 50,
-        alignment: Alignment.center,
-        child: Text('Ad Error: $_error', style: const TextStyle(color: Colors.red, fontSize: 12)),
-      );
+      return const SizedBox.shrink();
     }
     if (_bannerAd == null) {
       return const SizedBox.shrink();

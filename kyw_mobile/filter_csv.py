@@ -1,13 +1,13 @@
 import sys
 
-file_path = "c:\\Users\\madbr\\Downloads\\org=mansukh investment and trading_type=deferred_range=2026-06-16_2026-06-17_clrstream_report_1781686842309.csv"
+file_path = "c:\\Users\\madbr\\Downloads\\org=mansukh investment and trading_type=sent_range=2026-06-15_2026-06-16_clrstream_report_1781600437103.csv"
 try:
     with open(file_path, "r", encoding="utf-8") as f:
         lines = f.readlines()
 
     new_lines = []
     for i, line in enumerate(lines):
-        if i == 0 or not line.startswith("2026-06-17"):
+        if i == 0 or not line.startswith("2026-06-15"):
             new_lines.append(line)
 
     with open(file_path, "w", encoding="utf-8") as f:

@@ -8,6 +8,9 @@ import 'core/config.dart';
 import 'services/notification_service.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'services/ad_service.dart';
+import 'services/revenuecat_service.dart';
+import 'core/providers.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +19,8 @@ Future<void> main() async {
     url: AppConfig.supabaseUrl,
     anonKey: AppConfig.supabaseAnonKey,
   );
+
+  await RevenueCatService.init(Supabase.instance.client.auth.currentUser?.id);
 
   await NotificationService().init();
   await MobileAds.instance.initialize();
@@ -35,9 +40,18 @@ class KYWMobileApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
-    // Use system theme as fallback while persisted preference loads
     final themeModeAsync = ref.watch(themeModeProvider);
     final themeMode = themeModeAsync.value ?? ThemeMode.system;
+    
+    // Listen to auth changes to configure RevenueCat
+    ref.listen<User?>(currentUserProvider, (previous, next) {
+      if (next != null && next.id != previous?.id) {
+        RevenueCatService.login(next.id);
+      } else if (next == null && previous != null) {
+        RevenueCatService.logout();
+      }
+    });
+
     ref.watch(adServiceProvider); // Initialize ad service early
 
     return MaterialApp.router(

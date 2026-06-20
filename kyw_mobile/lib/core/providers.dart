@@ -1,5 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:purchases_flutter/purchases_flutter.dart';
+import '../services/revenuecat_service.dart';
 import 'cycle_engine.dart';
 
 final supabaseClientProvider = Provider<SupabaseClient>((ref) {
@@ -68,3 +70,20 @@ class SignupLoading extends Notifier<bool> {
 }
 
 final signupLoadingProvider = NotifierProvider<SignupLoading, bool>(SignupLoading.new);
+
+class ProNotifier extends Notifier<bool> {
+  @override
+  bool build() {
+    _init();
+    return false;
+  }
+
+  Future<void> _init() async {
+    Purchases.addCustomerInfoUpdateListener((customerInfo) {
+      state = customerInfo.entitlements.all[RevenueCatService.entitlementPro]?.isActive == true;
+    });
+    state = await RevenueCatService.isUserPro();
+  }
+}
+
+final isProProvider = NotifierProvider<ProNotifier, bool>(ProNotifier.new);

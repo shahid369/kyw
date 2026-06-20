@@ -11,6 +11,7 @@ import '../screens/guide_screen.dart';
 import '../screens/settings_screen.dart';
 import '../screens/main_shell.dart';
 import '../screens/onboarding_screen.dart';
+import '../screens/paywall_screen.dart';
 import 'providers.dart';
 
 /// Notifies GoRouter to re-evaluate redirects whenever auth state changes.
@@ -57,6 +58,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(path: '/login',  builder: (_, __) => const LoginScreen()),
       GoRoute(path: '/signup', builder: (_, __) => const SignupScreen()),
       GoRoute(path: '/onboarding', builder: (_, __) => const OnboardingScreen()),
+      GoRoute(path: '/paywall', builder: (_, __) => const PaywallScreen()),
 
       // ── Main shell (5 tabs) ─────────────────────────────────────
       StatefulShellRoute.indexedStack(
