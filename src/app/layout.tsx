@@ -43,9 +43,10 @@ export default function RootLayout({
                   Health information provided is for educational purposes only and is not medical advice.
                 </span>
               </p>
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', fontSize: '0.85rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', fontSize: '0.85rem', flexWrap: 'wrap' }}>
                 <a href="/privacy" style={{ color: 'var(--color-primary)', textDecoration: 'none' }}>Privacy Policy</a>
                 <a href="/terms" style={{ color: 'var(--color-primary)', textDecoration: 'none' }}>Terms of Service</a>
+                <a href="/delete-account" style={{ color: 'var(--color-primary)', textDecoration: 'none' }}>Delete Account</a>
                 <a href="mailto:knowyourwomenapp@gmail.com" style={{ color: 'var(--color-primary)', textDecoration: 'none' }}>Contact Support</a>
               </div>
             </div>

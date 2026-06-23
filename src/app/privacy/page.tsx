@@ -44,7 +44,12 @@ export default function PrivacyPolicy() {
         We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.
       </p>
 
-      <h2 style={{ marginTop: '32px', marginBottom: '16px' }}>5. Contact Us</h2>
+      <h2 style={{ marginTop: '32px', marginBottom: '16px' }}>5. Account Deletion and Data Erasure</h2>
+      <p style={{ marginBottom: '16px' }}>
+        You have the right to request the deletion of your account and all associated data at any time. To request deletion, you can visit our dedicated <a href="/delete-account" style={{ color: 'var(--color-primary)', textDecoration: 'underline' }}>Account Deletion Request Page</a> and follow the instructions to generate an account erasure email. Once received, our team will permanently delete your cycle history, partner profile details, symptoms tracking, and personal settings within 24 to 48 hours.
+      </p>
+
+      <h2 style={{ marginTop: '32px', marginBottom: '16px' }}>6. Contact Us</h2>
       <p style={{ marginBottom: '16px' }}>If you have questions or comments about this Privacy Policy, please contact us at:</p>
       <p>
         <strong>Email:</strong> knowyourwomenapp@gmail.com
